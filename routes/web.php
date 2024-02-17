@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class);
+Route::view('/dashboard', 'layouts.dashboard.dashboard');
+Route::view('/dashboard/posts', 'layouts.dashboard.dashboard');
+Route::view('/dashboard/posts/netlify', 'layouts.dashboard.dashboard');
