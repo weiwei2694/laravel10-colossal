@@ -35,9 +35,9 @@
                         </li>
                     @endforeach
                 </ul>
-                {{-- Contact --}}
+                {{-- Login --}}
                 <a class="rounded-[3px] text-white font-medium text-[14px] bg-white/10 shadow w-[112px] h-[39px] grid place-items-center"
-                    href="/">Contact</a>
+                    href="/auth/login">Login</a>
             </div>
         </nav>
 

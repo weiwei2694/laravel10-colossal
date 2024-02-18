@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class);
-Route::view('/dashboard', 'layouts.dashboard.dashboard');
-Route::view('/dashboard/posts', 'layouts.dashboard.dashboard');
-Route::view('/dashboard/posts/netlify', 'layouts.dashboard.dashboard');
+
+
+Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
+Route::post('/auth/logout', [AuthController::class, 'destroy'])->name('logout')->middleware('auth');
+
+Route::view('/dashboard', 'layouts.dashboard.dashboard')->middleware('auth');
