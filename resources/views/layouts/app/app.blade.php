@@ -18,7 +18,9 @@
         @include('layouts.app.partials.nav')
 
         {{-- Content --}}
-        @yield('content')
+        <div class="relative z-10">
+            @yield('content')
+        </div>
 
         {{-- Send Quote Cta --}}
         @include('layouts.app.partials.sendquotecta')
