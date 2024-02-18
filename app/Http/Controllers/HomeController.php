@@ -46,6 +46,6 @@ class HomeController extends Controller
         ];
 
         return response()
-            ->view('home', compact("lists", "features"));
+            ->view('home.home', compact("lists", "features"));
     }
 }
