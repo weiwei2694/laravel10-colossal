@@ -16,9 +16,7 @@
                 on the same day. Even so, we do not<br /> reduce the quality of our work.</p>
         </div>
         <div class="flex items-center gap-x-[30px] justify-center">
-            <a href="/"
-                class="w-[202px] h-[52px] rounded-[3px] bg-primary hover:bg-primary/90 transition text-white grid place-items-center font-semibold text-[16px]">Send
-                Quote</a>
+            <x-button-send-quote />
             <a href="/"
                 class="w-[200px] h-[52px] rounded-[3px] bg-white/10 hover:bg-white/5 transition text-white grid place-items-center font-semibold text-[16px]">Learn
                 More</a>

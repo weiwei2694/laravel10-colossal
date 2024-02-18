@@ -20,7 +20,7 @@ $lists = [
 ?>
 
 <nav class="relative z-10">
-    <div class="pt-[50px] flex items-center justify-between">
+    <div class="flex items-center justify-between">
         {{-- Logo --}}
         <img src="/assets/logo.svg" alt="Colossal Logo" class="w-[138.25px] h-[31px]">
         {{-- Lists --}}

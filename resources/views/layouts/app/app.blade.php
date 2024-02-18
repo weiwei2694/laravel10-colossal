@@ -10,13 +10,20 @@
 
 <body class="bg-card-dark">
     {{-- Main --}}
-    <main class="relative w-[1025px] mx-auto">
+    <main class="relative w-[1025px] mx-auto py-[50px]">
         {{-- Highlights --}}
         @include('layouts.app.partials.highlights')
+
         {{-- Nav --}}
         @include('layouts.app.partials.nav')
 
+        {{-- Content --}}
         @yield('content')
+
+        {{-- Send Quote Cta --}}
+        @include('layouts.app.partials.sendquotecta')
+        {{-- Footer --}}
+        @include('layouts.app.partials.footer')
     </main>
 </body>
 
