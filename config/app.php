@@ -183,6 +183,16 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'User' => App\Models\User::class,
+        'Post' => App\Models\Post::class,
+        'Comment' => App\Models\Comment::class,
+        'Project' => App\Models\Project::class,
+        'ProjectCategory' => App\Models\ProjectCategory::class,
+        'Sponsor' => App\Models\Sponsor::class,
+        'Testimonial' => App\Models\Testimonial::class,
+        'Faq' => App\Models\Faq::class,
+        'FaqCategory' => App\Models\FaqCategory::class,
+        'Quote' => App\Models\Quote::class,
     ])->toArray(),
 
 ];
