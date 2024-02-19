@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Dashboard\Admin\UserController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +34,6 @@ Route::prefix('dashboard')
 
         Route::middleware(['is_admin', 'auth'])->group(function () {
             // ...
+            Route::resource('users', UserController::class);
         });
     });
