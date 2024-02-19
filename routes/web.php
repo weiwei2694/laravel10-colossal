@@ -22,4 +22,4 @@ Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->midd
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
 Route::post('/auth/logout', [AuthController::class, 'destroy'])->name('logout')->middleware('auth');
 
-Route::view('/dashboard', 'layouts.dashboard.dashboard')->middleware('auth');
+Route::view('/dashboard', 'layouts.dashboard.dashboard')->middleware('auth')->name('dashboard.index');
