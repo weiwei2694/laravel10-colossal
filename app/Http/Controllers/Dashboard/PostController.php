@@ -70,6 +70,8 @@ class PostController extends Controller
      */
     public function show(Post $post): Response
     {
+        $this->authorize('manage-posts', $post);
+
         return response()
             ->view('dashboard.posts.show', [
                 'post' => $post
@@ -81,6 +83,8 @@ class PostController extends Controller
      */
     public function edit(Post $post): Response
     {
+        $this->authorize('manage-posts', $post);
+
         return response()
             ->view('dashboard.posts.edit', [
                 'post' => $post
@@ -92,6 +96,8 @@ class PostController extends Controller
      */
     public function update(Post $post): RedirectResponse
     {
+        $this->authorize('manage-posts', $post);
+
         $rules = [
             "title" => ["required", "max:149"],
             "subtitle" => ["required", "max:74"],
@@ -131,6 +137,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post): RedirectResponse
     {
+        $this->authorize('manage-posts', $post);
+
         Storage::disk('public')->delete($post->image);
         $post->delete();
 
