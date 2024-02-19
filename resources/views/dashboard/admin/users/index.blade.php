@@ -46,9 +46,19 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-start text-sm font-medium">
                                                 <div class="flex items-center gap-x-[20px]">
-                                                    <x-action-item url="#">
-                                                        Delete
-                                                    </x-action-item>
+                                                    <div>
+                                                        <form id="delete-form"
+                                                            action="{{ route('dashboard.users.destroy', $user->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+
+                                                        <button onclick="deletePost()" type="button"
+                                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:pointer-events-none">
+                                                            Delete
+                                                        </button>
+                                                    </div>
                                                     <x-action-item
                                                         url="{{ route('dashboard.users.show', $user->id) }}">View</x-action-item>
                                                     <x-action-item
@@ -80,4 +90,23 @@
             });
         </script>
     @endif
+
+    <script>
+        function deletePost() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will not be able to recover this user!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const deleteForm = document.getElementById('delete-form');
+                    deleteForm.submit();
+                }
+            });
+        }
+    </script>
 @endsection
