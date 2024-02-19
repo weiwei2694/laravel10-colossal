@@ -22,11 +22,11 @@
             </a>
             <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                 <li class="mb-4">
-                    <a href="/dashboard/posts"
+                    <a href="{{ route('dashboard.posts.index') }}"
                         class="text-gray-300 text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All</a>
                 </li>
                 <li class="mb-4">
-                    <a href="/dashboard/posts/create"
+                    <a href="{{ route('dashboard.posts.create') }}"
                         class="text-gray-300 text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Create</a>
                 </li>
             </ul>

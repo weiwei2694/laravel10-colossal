@@ -17,7 +17,7 @@ class Post extends Model
     public $timestamps = true;
     public $incrementing = true;
 
-    protected $fillable = ["title", "subtitle", "body", "reading_time", "tags", "user_id"];
+    protected $fillable = ["title", "subtitle", "body", "reading_time", "tags", "image", "user_id"];
 
     public function user(): BelongsTo
     {

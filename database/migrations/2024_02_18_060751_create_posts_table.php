@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('body')->nullable(false);
             $table->integer('reading_time')->nullable(false);
             $table->json('tags')->nullable(true);
+            $table->longText('image')->nullable(false);
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
