@@ -62,7 +62,8 @@
                                                             Delete
                                                         </button>
                                                     </div>
-                                                    <x-action-item url="#">View</x-action-item>
+                                                    <x-action-item
+                                                        url="{{ route('dashboard.posts.show', $post->id) }}">View</x-action-item>
                                                     <x-action-item
                                                         url="{{ route('dashboard.posts.edit', $post->id) }}">Edit</x-action-item>
                                                 </div>

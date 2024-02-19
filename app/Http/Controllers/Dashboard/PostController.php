@@ -68,9 +68,12 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Post $post): Response
     {
-        //
+        return response()
+            ->view('dashboard.posts.show', [
+                'post' => $post
+            ]);
     }
 
     /**
