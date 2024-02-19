@@ -51,7 +51,8 @@
                                                 <div class="flex items-center gap-x-[20px]">
                                                     <x-action-item url="#">Delete</x-action-item>
                                                     <x-action-item url="#">View</x-action-item>
-                                                    <x-action-item url="#">Edit</x-action-item>
+                                                    <x-action-item
+                                                        url="{{ route('dashboard.posts.edit', $post->id) }}">Edit</x-action-item>
                                                 </div>
                                             </td>
                                         </tr>
@@ -72,8 +73,9 @@
 @section('scripts')
     @if (session('success'))
         <script>
+            const successMessage = {!! json_encode(session('success')) !!};
             Swal.fire({
-                title: session('success'),
+                title: successMessage,
                 icon: "success"
             });
         </script>

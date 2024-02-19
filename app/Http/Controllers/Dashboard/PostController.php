@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -43,6 +44,7 @@ class PostController extends Controller
             "body" => ["required"],
             "reading_time" => ["required", "integer", "min:1"],
             "tags" => ["required"],
+            "image" => ["required", "file", "max:1024"]
         ]);
 
         $tags = json_encode(explode(',', request()->input('tags')));
@@ -55,7 +57,7 @@ class PostController extends Controller
         $post->title = request()->input('title');
         $post->subtitle = request()->input('subtitle');
         $post->tags = $tags;
-        $post->image = '/storage/' . $path;
+        $post->image = $path;
         $post->reading_time = request()->input('reading_time');
         $post->body = request()->input('body');
         $post->save();
@@ -74,17 +76,51 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Post $post): Response
     {
-        //
+        return response()
+            ->view('dashboard.posts.edit', [
+                'post' => $post
+            ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Post $post): RedirectResponse
     {
-        //
+        $rules = [
+            "title" => ["required", "max:149"],
+            "subtitle" => ["required", "max:74"],
+            "body" => ["required"],
+            "reading_time" => ["required", "integer", "min:1"],
+            "tags" => ["required"],
+        ];
+        if (request()->hasFile('image')) {
+            $rules['image'] = ["required", "file", "max:1024"];
+        }
+        request()->validate($rules);
+
+        $tags = json_encode(explode(',', request()->input('tags')));
+
+        $post->user_id = auth()->user()->id;
+        $post->title = request()->input('title');
+        $post->subtitle = request()->input('subtitle');
+        $post->tags = $tags;
+        if (request()->hasFile('image')) {
+            Storage::disk('public')->delete($post->image);
+
+            $fileName = time() . request()->file('image')->getClientOriginalName();
+            $path = request()->file('image')->storeAs('images/posts', $fileName, 'public');
+            $post->image = $path;
+        }
+        $post->reading_time = request()->input('reading_time');
+        $post->body = request()->input('body');
+        $post->save();
+
+        return redirect()
+            ->route('dashboard.posts.index')
+            ->with('success', 'Post Updated Successfully.');
     }
 
     /**
