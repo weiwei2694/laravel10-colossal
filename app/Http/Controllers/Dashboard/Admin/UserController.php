@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -39,7 +40,7 @@ class UserController extends Controller
     {
         request()->validate([
             'name' => 'required|max:74',
-            'email' => 'required|max:149|email',
+            'email' => 'required|max:149|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
             'role' => 'required|max:74',
             'image' => 'required|file|max:1024|mimes:png,jpg,jpeg,webp',
@@ -72,17 +73,38 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(User $user): Response
     {
-        //
+        return response()
+            ->view('dashboard.admin.users.edit', ['user' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(User $user): RedirectResponse
     {
-        //
+        $rules = [
+            'name' => 'required|max:74',
+            'email' => ["required", "max:149", "unique:users,email,$user->id"],
+            'role' => 'required|max:74',
+        ];
+        if (request()->input('new_password')) {
+            $rules['new_password'] = 'required|min:8|confirmed';
+        }
+        request()->validate($rules);
+
+        $user->name = request()->input('name');
+        $user->email = request()->input('email');
+        $user->role = request()->input('role');
+        if (request()->input('new_password')) {
+            $user->password = bcrypt(request()->input('new_password'));
+        }
+        $user->save();
+
+        return redirect()
+            ->route('dashboard.users.index')
+            ->with('success', 'User Updated Successfully.');
     }
 
     /**

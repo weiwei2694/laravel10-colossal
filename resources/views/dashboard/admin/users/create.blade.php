@@ -15,7 +15,7 @@
                     <label for="name" class="font-medium">Name</label>
                     <input type="text" name="name" id="name" autofocus value="{{ old('name') }}"
                         placeholder="name" class="@error('name') dashboard-input__error @else dashboard-input @enderror"
-                        autofocus required>
+                        required>
                     @error('name')
                         <span class="text-red-600 text-sm">{{ $message }}</span>
                     @enderror
@@ -24,9 +24,8 @@
                 <!-- Email -->
                 <div class="flex flex-col">
                     <label for="email" class="font-medium">Email</label>
-                    <input type="email" name="email" id="email" autofocus value="{{ old('email') }}"
-                        placeholder="email" class="@error('email') dashboard-input__error @else dashboard-input @enderror"
-                        required>
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="email"
+                        class="@error('email') dashboard-input__error @else dashboard-input @enderror" required>
                     @error('email')
                         <span class="text-red-600 text-sm">{{ $message }}</span>
                     @enderror
@@ -35,7 +34,7 @@
                 <!-- Password -->
                 <div class="flex flex-col">
                     <label for="password" class="font-medium">Password</label>
-                    <input type="password" name="password" id="password" autofocus value="{{ old('password') }}"
+                    <input type="password" name="password" id="password" value="{{ old('password') }}"
                         placeholder="password"
                         class="@error('password') dashboard-input__error @else dashboard-input @enderror" required>
                     @error('password')
@@ -46,7 +45,7 @@
                 <!-- Password Confirmation -->
                 <div class="flex flex-col">
                     <label for="password_confirmation" class="font-medium">Password Confirmation</label>
-                    <input type="password" name="password_confirmation" id="password_confirmation" autofocus
+                    <input type="password" name="password_confirmation" id="password_confirmation"
                         value="{{ old('password_confirmation') }}" placeholder="password confirmation"
                         class="@error('password') dashboard-input__error @else dashboard-input @enderror" required>
                     @error('password')
@@ -57,9 +56,8 @@
                 <!-- Role -->
                 <div class="flex flex-col">
                     <label for="role" class="font-medium">Role</label>
-                    <input type="text" name="role" id="role" autofocus value="{{ old('role') }}"
-                        placeholder="role" class="@error('role') dashboard-input__error @else dashboard-input @enderror"
-                        required>
+                    <input type="text" name="role" id="role" value="{{ old('role') }}" placeholder="role"
+                        class="@error('role') dashboard-input__error @else dashboard-input @enderror" required>
                     @error('role')
                         <span class="text-red-600 text-sm">{{ $message }}</span>
                     @enderror
@@ -68,7 +66,7 @@
                 <!-- Image -->
                 <div class="flex flex-col">
                     <label for="image" class="font-medium">Image</label>
-                    <input onchange="loadFile(event)" type="file" name="image" id="image" autofocus
+                    <input onchange="loadFile(event)" type="file" name="image" id="image"
                         value="{{ old('image') }}" placeholder="image"
                         class="@error('image') dashboard-input__error @else dashboard-input @enderror" required>
                     @error('image')
