@@ -23,10 +23,15 @@ Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->midd
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
 Route::post('/auth/logout', [AuthController::class, 'destroy'])->name('logout')->middleware('auth');
 
-Route::middleware('auth')
-    ->prefix('dashboard')
+Route::prefix('dashboard')
     ->as('dashboard.')
     ->group(function () {
-        Route::view('/', 'layouts.dashboard.dashboard')->name('index');
-        Route::resource('posts', PostController::class);
+        Route::middleware(['auth'])->group(function () {
+            Route::view('/', 'layouts.dashboard.dashboard')->name('index');
+            Route::resource('posts', PostController::class);
+        });
+
+        Route::middleware(['is_admin', 'auth'])->group(function () {
+            // ...
+        });
     });

@@ -29,5 +29,11 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('Forbidden', 403);
         });
+
+        Gate::define('is_admin', function (User $user) {
+            return $user->is_admin
+                ? Response::allow()
+                : Response::deny('Forbidden', 403);
+        });
     }
 }
