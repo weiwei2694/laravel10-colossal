@@ -7,4 +7,6 @@
     @include('home.partials.features')
     {{-- Section - Sponsors --}}
     @include('home.partials.sponsors')
+    {{-- Section - How We Work --}}
+    @include('home.partials.how-we-work')
 @endsection
