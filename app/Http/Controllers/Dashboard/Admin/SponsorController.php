@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Sponsor;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -25,17 +26,33 @@ class SponsorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): Response
     {
-        //
+        return response()
+            ->view('dashboard.admin.sponsors.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(): RedirectResponse
     {
-        //
+        request()->validate([
+            'name' => 'required|max:74',
+            'image' => 'required|file|max:1024'
+        ]);
+
+        $fileName = time() . request()->file('image')->getClientOriginalName();
+        $path = request()->file('image')->storeAs('images/sponsors', $fileName, 'public');
+
+        $sponsor = new Sponsor();
+        $sponsor->name = request()->input('name');
+        $sponsor->image = $path;
+        $sponsor->save();
+
+        return redirect()
+            ->route('dashboard.sponsors.index')
+            ->with('success', 'Sponsor Created Successfully.');
     }
 
     /**
