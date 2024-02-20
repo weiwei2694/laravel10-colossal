@@ -75,9 +75,12 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(Project $project): Response
     {
-        //
+        return response()
+            ->view('dashboard.admin.projects.show', [
+                'project' => $project
+            ]);
     }
 
     /**
