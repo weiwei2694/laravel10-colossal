@@ -14,6 +14,14 @@
                                 <thead>
                                     <tr>
                                         <th scope="col"
+                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Id
+                                        </th>
+                                        @can('is_admin')
+                                            <th scope="col"
+                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">User Id
+                                            </th>
+                                        @endcan
+                                        <th scope="col"
                                             class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Title
                                         </th>
                                         <th scope="col"
@@ -35,6 +43,12 @@
                                 <tbody class="divide-y divide-gray-200">
                                     @foreach ($posts as $post)
                                         <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                                                {{ $post->id }}</td>
+                                            @can('is_admin')
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                                                    {{ $post->user_id }}</td>
+                                            @endcan
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                                 {{ $post->title }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">

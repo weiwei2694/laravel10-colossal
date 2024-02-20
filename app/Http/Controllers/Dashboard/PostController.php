@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +15,17 @@ class PostController extends Controller
      */
     public function index(): Response
     {
-        $posts = Post::where('user_id', auth()->id())->paginate(10);
+        $posts = Post::query();
+        if (auth()->user()->is_admin) {
+            $posts->where('user_id', request()->query('user_id'));
+
+            if (!request()->query('user_id')) {
+                $posts->orWhereNotNull('user_id');
+            }
+        } else {
+            $posts->where('user_id', auth()->id());
+        }
+        $posts = $posts->paginate(10);
 
         return response()
             ->view('dashboard.posts.index', [
@@ -70,8 +79,6 @@ class PostController extends Controller
      */
     public function show(Post $post): Response
     {
-        $this->authorize('manage-posts', $post);
-
         return response()
             ->view('dashboard.posts.show', [
                 'post' => $post
