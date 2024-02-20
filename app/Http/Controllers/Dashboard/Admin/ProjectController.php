@@ -8,6 +8,7 @@ use App\Models\ProjectCategory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -82,17 +83,53 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(Project $project): Response
     {
-        //
+        $categories = ProjectCategory::all();
+
+        return response()
+            ->view('dashboard.admin.projects.edit', [
+                'categories' => $categories,
+                'project' => $project
+            ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(Project $project): RedirectResponse
     {
-        //
+        $rules = [
+            'title' => 'required|max:74',
+            'description' => 'required|max:199',
+            'client' => 'required|max:74',
+            'technology' => 'required',
+            'is_desktop' => 'required',
+            'project_category_id' => 'required|exists:project_categories,id',
+        ];
+        if (request()->hasFile('image')) {
+            $rules['image'] = 'required|file|max:1024';
+        }
+        request()->validate($rules);
+
+        $technology = json_encode(explode(',', request()->input('technology')));
+
+        $project->title = request()->input('title');
+        $project->description = request()->input('description');
+        $project->client = request()->input('client');
+        $project->technology = $technology;
+        $project->is_desktop = request()->input('is_desktop') === "Yes";
+        $project->project_category_id = request()->input('project_category_id');
+        if (request()->hasFile('image')) {
+            Storage::disk('public')->delete($project->image);
+
+            $fileName = time() . request()->file('image')->getClientOriginalName();
+            $path = request()->file('image')->storeAs('images/projects', $fileName, 'public');
+            $project->image = $path;
+        }
+        $project->save();
+
+        return redirect()->route('dashboard.projects.index')->with('success', 'Project Updated Successfully.');
     }
 
     /**
