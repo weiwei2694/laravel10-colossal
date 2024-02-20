@@ -5,4 +5,6 @@
     @include('home.partials.typography')
     {{-- Section - Features --}}
     @include('home.partials.features')
+    {{-- Section - Sponsors --}}
+    @include('home.partials.sponsors')
 @endsection

@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
     @vite('resources/css/app.css')
+    @yield('styles')
 </head>
 
 <body class="bg-card-dark">
@@ -27,6 +29,8 @@
         {{-- Footer --}}
         @include('layouts.app.partials.footer')
     </main>
+
+    @yield('scripts')
 </body>
 
 </html>

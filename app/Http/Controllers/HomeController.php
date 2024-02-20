@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -44,8 +45,9 @@ class HomeController extends Controller
                 "description" => "After the work is complete, we will send the project and all its assets to you."
             ]
         ];
+        $sponsors = Sponsor::all();
 
         return response()
-            ->view('home.home', compact("lists", "features"));
+            ->view('home.home', compact("lists", "features", "sponsors"));
     }
 }
