@@ -58,9 +58,12 @@ class SponsorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Sponsor $sponsor)
+    public function show(Sponsor $sponsor): Response
     {
-        //
+        return response()
+            ->view('dashboard.admin.sponsors.show', [
+                'sponsor' => $sponsor
+            ]);
     }
 
     /**
