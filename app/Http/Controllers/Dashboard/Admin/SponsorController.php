@@ -7,6 +7,7 @@ use App\Models\Sponsor;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class SponsorController extends Controller
 {
@@ -69,17 +70,40 @@ class SponsorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sponsor $sponsor)
+    public function edit(Sponsor $sponsor): Response
     {
-        //
+        return response()
+            ->view('dashboard.admin.sponsors.edit', [
+                'sponsor' => $sponsor
+            ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sponsor $sponsor)
+    public function update(Sponsor $sponsor): RedirectResponse
     {
-        //
+        $rules = [
+            'name' => 'required|max:74',
+        ];
+        if (request()->hasFile('image')) {
+            $rules['image'] = 'required|file|max:1024';
+        }
+        request()->validate($rules);
+
+        $sponsor->name = request()->input('name');
+        if (request()->hasFile('image')) {
+            Storage::disk('public')->delete($sponsor->image);
+
+            $fileName = time() . request()->file('image')->getClientOriginalName();
+            $path = request()->file('image')->storeAs('images/sponsors', $fileName, 'public');
+            $sponsor->image = $path;
+        }
+        $sponsor->save();
+
+        return redirect()
+            ->route('dashboard.sponsors.index')
+            ->with('success', 'Sponsor Updated Successfully.');
     }
 
     /**
