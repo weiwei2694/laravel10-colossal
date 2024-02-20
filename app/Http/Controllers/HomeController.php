@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -46,8 +47,9 @@ class HomeController extends Controller
             ]
         ];
         $sponsors = Sponsor::all();
+        $projects = Project::orderBy('created_at', 'desc')->take(2)->get();
 
         return response()
-            ->view('home.home', compact("lists", "features", "sponsors"));
+            ->view('home.home', compact("lists", "features", "sponsors", "projects"));
     }
 }

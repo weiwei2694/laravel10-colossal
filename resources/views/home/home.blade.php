@@ -11,4 +11,6 @@
     @include('home.partials.how-we-work')
     {{-- Section - Our Team --}}
     @include('home.partials.our-team')
+    {{-- Section - Projects --}}
+    @include('home.partials.projects')
 @endsection
