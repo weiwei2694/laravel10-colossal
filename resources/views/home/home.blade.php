@@ -9,4 +9,6 @@
     @include('home.partials.sponsors')
     {{-- Section - How We Work --}}
     @include('home.partials.how-we-work')
+    {{-- Section - Our Team --}}
+    @include('home.partials.our-team')
 @endsection
