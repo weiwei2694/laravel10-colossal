@@ -65,13 +65,13 @@
                                                 <div class="flex items-center gap-x-[20px]">
                                                     <div>
                                                         <form id="delete-form"
-                                                            action="{{ route('dashboard.posts.destroy', $post->id) }}"
+                                                            action="{{ route('dashboard.posts.destroy', '__id__') }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                         </form>
 
-                                                        <button onclick="deletePost()" type="button"
+                                                        <button onclick="deletePost({{ $post->id }})" type="button"
                                                             class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:pointer-events-none">
                                                             Delete
                                                         </button>
@@ -109,7 +109,7 @@
     @endif
 
     <script>
-        function deletePost() {
+        function deletePost(id) {
             Swal.fire({
                 title: 'Are you sure?',
                 text: 'You will not be able to recover this item!',
@@ -121,6 +121,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     const deleteForm = document.getElementById('delete-form');
+                    deleteForm.action = deleteForm.action.replace('__id__', id);
                     deleteForm.submit();
                 }
             });
