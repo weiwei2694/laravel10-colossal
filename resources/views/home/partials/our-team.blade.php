@@ -1,4 +1,4 @@
-<section class="py-[150px] relative">
+<section class="relative w-[1025px] mx-auto py-[150px] relative">
     <div
         class="bg-[#6016FC] w-[356.61px] h-[350.19px] rotate-[14.13deg] absolute z-0 right-0 top-[50px] rounded-full opacity-[15%] blur-3xl">
     </div>

@@ -12,7 +12,7 @@
 
 <body class="bg-card-dark">
     {{-- Main --}}
-    <main class="relative w-[1025px] mx-auto py-[50px]">
+    <main class="py-[50px]">
         {{-- Highlights --}}
         @include('layouts.app.partials.highlights')
 
@@ -20,9 +20,7 @@
         @include('layouts.app.partials.nav')
 
         {{-- Content --}}
-        <div class="relative z-10">
-            @yield('content')
-        </div>
+        @yield('content')
 
         {{-- Send Quote Cta --}}
         @include('layouts.app.partials.sendquotecta')

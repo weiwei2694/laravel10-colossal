@@ -1,4 +1,4 @@
-<section class="py-[150px] border-t border-t-white/10 relative">
+<section class="relative w-[1025px] mx-auto pt-[150px] border-t border-t-white/10">
     <div
         class="w-3/4 h-[424px] bg-transparent border-t-[70px] border-r-[70px] border-b-[70px] opacity-[3%] absolute -left-[50%] z-0">
     </div>

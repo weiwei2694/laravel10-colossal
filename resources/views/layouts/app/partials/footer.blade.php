@@ -78,7 +78,7 @@ $lists = [
 ];
 ?>
 
-<footer class="grid grid-cols-4 pt-[80px]">
+<footer class="relative w-[1025px] mx-auto grid grid-cols-4 pt-[80px]">
     <div class="flex flex-col gap-y-[20px]">
         <img src="{{ asset('/assets/logov2.svg') }}" alt="Colossal Logo" class="w-[142px] h-[31px]">
         <ul class="flex flex-col">

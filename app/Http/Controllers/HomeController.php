@@ -48,8 +48,25 @@ class HomeController extends Controller
         ];
         $sponsors = Sponsor::all();
         $projects = Project::orderBy('created_at', 'desc')->take(2)->get();
+        $pricing = [
+            [
+                'title' => 'UI Design',
+                'price' => '1200',
+                'lists' => ["10 design pages", "Well-documented", "4 revisions", "$100/additional page"]
+            ],
+            [
+                "title" => "Development",
+                "price" => "5000",
+                "lists" => ["Web & Mobile", "Well-documented", "8 revisions", "$1000/additional feature"]
+            ],
+            [
+                "title" => "Maintenance",
+                "price" => "3000",
+                "lists" => ["Daily backup", "3 hourse of maintenance", "Including fixing", "$50/additional hour"]
+            ]
+        ];
 
         return response()
-            ->view('home.home', compact("lists", "features", "sponsors", "projects"));
+            ->view('home.home', compact("lists", "features", "sponsors", "projects", "pricing"));
     }
 }

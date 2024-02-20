@@ -1,4 +1,4 @@
-<section class="pt-[150px]">
+<section class="relative w-[1025px] mx-auto pt-[150px]">
     <div class="grid grid-cols-3 gap-x-[25px]">
         @foreach ($features as $feature)
             <div class="bg-white/5 w-full h-fit p-[35px] flex flex-col gap-y-[20px]">

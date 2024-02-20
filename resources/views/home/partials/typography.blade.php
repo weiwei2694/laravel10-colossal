@@ -1,4 +1,4 @@
-<section class="pt-[175px] flex flex-col justify-center text-center">
+<section class="relative w-[1025px] mx-auto pt-[175px] flex flex-col justify-center text-center">
     <div class="flex flex-col gap-y-[40px]">
         <div class="flex flex-col gap-y-[30px]">
             <h2 class="text-green font-semibold text-[16px] tracking-[3px] leading-[32px]">CLIENT-DEVELOPMENT

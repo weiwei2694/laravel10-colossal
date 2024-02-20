@@ -13,4 +13,6 @@
     @include('home.partials.our-team')
     {{-- Section - Projects --}}
     @include('home.partials.projects')
+    {{-- Section - Get Started --}}
+    @include('home.partials.get-started')
 @endsection
