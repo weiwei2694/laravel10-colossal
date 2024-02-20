@@ -109,8 +109,13 @@ class SponsorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sponsor $sponsor)
+    public function destroy(Sponsor $sponsor): RedirectResponse
     {
-        //
+        Storage::disk('public')->delete($sponsor->image);
+        $sponsor->delete();
+
+        return redirect()
+            ->route('dashboard.sponsors.index')
+            ->with('success', 'Sponsor Deleted Successfully.');
     }
 }
