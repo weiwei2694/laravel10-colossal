@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Dashboard\Admin\SponsorController;
-use App\Http\Controllers\Dashboard\Admin\UserController;
+use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController};
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -37,5 +36,6 @@ Route::prefix('dashboard')
             // ...
             Route::resource('users', UserController::class);
             Route::resource('sponsors', SponsorController::class);
+            Route::resource('projects', ProjectController::class);
         });
     });
