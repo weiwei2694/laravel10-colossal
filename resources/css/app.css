@@ -48,12 +48,31 @@ body {
     animation: slideIn 0.5s forwards;
 }
 
+.testimonial-card {
+    opacity: 50%;
+}
+
+.splide__slide .testimonial-card {
+    animation: slideOut 0.5s forwards;
+}
+
 @keyframes slideIn {
     0% {
+        opacity: 50%;
         transform: translateY(0);
     }
     100% {
+        opacity: 100%;
         transform: translateY(-50px);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
 
