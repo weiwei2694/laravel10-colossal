@@ -56,3 +56,17 @@ body {
         transform: translateY(-50px);
     }
 }
+
+/* Navbar - app layout */
+.navbar__list.active {
+    display: flex;
+}
+
+@keyframes showMenu {
+    0% {
+        transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
