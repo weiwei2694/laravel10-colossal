@@ -1,4 +1,4 @@
-<section class="relative w-[1025px] mx-auto pt-[150px] border-t border-t-white/10">
+<section class="relative max-w-[1025px] mx-auto pt-[150px] border-t border-t-white/10 px-10 lg:px-0">
     <div
         class="w-3/4 h-[424px] bg-transparent border-t-[70px] border-r-[70px] border-b-[70px] opacity-[3%] absolute -left-[50%] z-0">
     </div>
@@ -8,7 +8,8 @@
     <div
         class="w-[55.09px] h-[55.09px] bg-gradient-to-br from-[#66FFA3] to-[#009C3E] rounded-full blur-sm absolute right-[120px] top-[120px]">
     </div>
-    <div class="w-[29.85px] h-[29.85px] bg-[#6016FC] rounded-full blur-sm absolute -right-[30px] top-[300px]">
+    <div
+        class="w-[29.85px] h-[29.85px] bg-[#6016FC] rounded-full blur-sm absolute right-[30px] lg:-right-[30px] top-[300px]">
     </div>
 
     <div class="relative z-10 flex flex-col gap-[60px]">
@@ -18,13 +19,13 @@
                 We have completed many<br /> amazing projects that you will<br /> not believe
             </x-description-bold>
         </div>
-        <div class="grid grid-cols-2 gap-[20px]">
+        <div class="grid place-items-center grid-cols-1 md:grid-cols-2 gap-[60px] md:gap-[20px]">
             @foreach ($projects as $project)
-                <div class="flex flex-col w-full items-center gap-y-[32px]">
+                <div class="flex flex-col w-full items-center gap-y-[16px] md:gap-y-[32px]">
                     <div class="relative">
                         <div class="inset-0 absolute top-0 left-0 bg-card-dark/40 z-10"></div>
                         <img src="{{ asset('/storage/' . $project->image) }}" alt="{{ $project->title }}"
-                            class="w-full h-[441px] object-cover rounnded relative z-0" />
+                            class="w-full h-[300px] md:h-[441px] object-cover rounnded relative z-0" />
                     </div>
                     <div class="flex flex-col gap-y-[6px] text-center">
                         <h3 class="text-white font-bold leading-[34px] text-[20px] text-center">{{ $project->title }}
