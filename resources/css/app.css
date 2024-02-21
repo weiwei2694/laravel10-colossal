@@ -37,3 +37,22 @@ body {
 .main.active {
     @apply md:w-full md:ml-0;
 }
+
+/* Splide */
+.splide__slide {
+    transition: 0.5s;
+}
+
+.splide__slide.is-active .testimonial-card {
+    border: 2px solid #6016fc;
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px);
+    }
+}

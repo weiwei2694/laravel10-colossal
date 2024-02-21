@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Sponsor;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -65,8 +66,9 @@ class HomeController extends Controller
                 "lists" => ["Daily backup", "3 hourse of maintenance", "Including fixing", "$50/additional hour"]
             ]
         ];
+        $testimonials = Testimonial::all();
 
         return response()
-            ->view('home.home', compact("lists", "features", "sponsors", "projects", "pricing"));
+            ->view('home.home', compact("lists", "features", "sponsors", "projects", "pricing", "testimonials"));
     }
 }
