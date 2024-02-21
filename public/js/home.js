@@ -1,13 +1,15 @@
 const sponsorsCard = document.getElementById("sponsors-card");
 let sponsorsSplide = new Splide(sponsorsCard, {
+    type: "loop",
     arrows: false,
     perPage: 3,
     autoScroll: {
-        speed: 2,
-        rewind: true,
+        speed: 3,
         pauseOnHover: false,
     },
     pagination: false,
+    omitEnd: true,
+    snap: true,
 });
 
 sponsorsSplide.mount(window.splide.Extensions);
