@@ -61,9 +61,10 @@ class TestimonialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Testimonial $testimonial)
+    public function show(Testimonial $testimonial): Response
     {
-        //
+        return response()
+            ->view("dashboard.admin.testimonials.show", compact("testimonial"));
     }
 
     /**
