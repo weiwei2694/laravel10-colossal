@@ -78,24 +78,26 @@ $lists = [
 ];
 ?>
 
-<footer class="relative w-[1025px] mx-auto grid grid-cols-4 pt-[80px]">
-    <div class="flex flex-col gap-y-[20px]">
-        <img src="{{ asset('/assets/logov2.svg') }}" alt="Colossal Logo" class="w-[142px] h-[31px]">
-        <ul class="flex flex-col">
-            <li class="text-[16px] font-medium leading-[32px] text-white/60">Copyright © 2021</li>
-            <li class="text-[16px] font-medium leading-[32px] text-white/60">Design By Collosal LLC</li>
-        </ul>
-    </div>
-    @foreach ($lists as $list)
+<footer class="relative max-w-[1025px] mx-auto pt-[80px]">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 px-10 lg:px-0">
         <div class="flex flex-col gap-y-[20px]">
-            <h3 class="text-white font-medium text-[14px] tracking-widest uppercase">{{ $list['name'] }}</h3>
-            <ul class="flex flex-col gap-y-[10px]">
-                @foreach ($list['childrens'] as $children)
-                    <li class="text-[16px] font-medium leading-[28px] text-white/60">
-                        <a href="{{ $children['url'] }}">{{ $children['name'] }}</a>
-                    </li>
-                @endforeach
+            <img src="{{ asset('/assets/logov2.svg') }}" alt="Colossal Logo" class="w-[142px] h-[31px]">
+            <ul class="flex flex-col">
+                <li class="text-[16px] font-medium leading-[32px] text-white/60">Copyright © 2021</li>
+                <li class="text-[16px] font-medium leading-[32px] text-white/60">Design By Collosal LLC</li>
             </ul>
         </div>
-    @endforeach
+        @foreach ($lists as $list)
+            <div class="flex flex-col gap-y-[20px]">
+                <h3 class="text-white font-medium text-[14px] tracking-widest uppercase">{{ $list['name'] }}</h3>
+                <ul class="flex flex-col gap-y-[10px]">
+                    @foreach ($list['childrens'] as $children)
+                        <li class="text-[16px] font-medium leading-[28px] text-white/60">
+                            <a href="{{ $children['url'] }}">{{ $children['name'] }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endforeach
+    </div>
 </footer>
