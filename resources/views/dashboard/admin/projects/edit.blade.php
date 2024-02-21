@@ -91,7 +91,7 @@
                     <label for="image" class="font-medium">Image</label>
                     <input onchange="loadFile(event)" type="file" name="image" id="image"
                         value="{{ old('image') }}" placeholder="image"
-                        class="@error('image') dashboard-input__error @else dashboard-input @enderror" required>
+                        class="@error('image') dashboard-input__error @else dashboard-input @enderror">
                     @error('image')
                         <span class="text-red-600 text-sm">{{ $message }}</span>
                     @enderror
