@@ -7,6 +7,7 @@ use App\Models\Testimonial;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
 {
@@ -68,17 +69,42 @@ class TestimonialController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Testimonial $testimonial)
+    public function edit(Testimonial $testimonial): Response
     {
-        //
+        return response()
+            ->view("dashboard.admin.testimonials.edit", compact("testimonial"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Testimonial $testimonial)
+    public function update(Testimonial $testimonial): RedirectResponse
     {
-        //
+        $rules = [
+            "name" => "required|max:74",
+            "company_name" => "required|max:74",
+            "content" => "required|max:199"
+        ];
+        if (request()->hasFile('image')) {
+            $rules['image'] = "required|file|max:1024";
+        }
+        request()->validate($rules);
+
+        $testimonial->name = request()->input('name');
+        $testimonial->company_name = request()->input('company_name');
+        $testimonial->content = request()->input('content');
+        if (request()->hasFile('image')) {
+            Storage::disk('public')->delete($testimonial->image);
+
+            $fileName = time() . request()->file('image')->getClientOriginalExtension();
+            $path = request()->file('image')->storeAs('images/testimonials', $fileName, 'public');
+            $testimonial->image = $path;
+        }
+        $testimonial->save();
+
+        return redirect()
+            ->route("dashboard.testimonials.index")
+            ->with("success", "Testimonial Updated Successfully.");
     }
 
     /**
