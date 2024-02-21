@@ -19,7 +19,7 @@ $lists = [
 ];
 ?>
 
-<nav class="relative max-w-[1025px] mx-auto z-10 px-10">
+<nav class="relative max-w-[1025px] mx-auto z-10 px-10 lg:px-0">
     <div class="flex items-center justify-between">
         {{-- Logo --}}
         <img src="/assets/logo.svg" alt="Colossal Logo" class="w-[138.25px] h-[31px] max-sm:block sm:hidden lg:block">
