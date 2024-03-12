@@ -1,4 +1,5 @@
-<section class="relative max-w-[1025px] mx-auto pt-[175px] flex flex-col justify-center text-center px-10 lg:px-0">
+<section
+    class="relative max-w-[1025px] mx-auto sm:pt-[175px] pt-[75px] flex flex-col justify-center text-center px-10 lg:px-0">
     <div class="flex flex-col gap-y-[25px] sm:gap-y-[40px]">
         <div class="flex flex-col items-center gap-y-[15px] sm:gap-y-[30px]">
             <x-green-title title="CLIENT-DEVELOPMENT

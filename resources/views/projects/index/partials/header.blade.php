@@ -1,4 +1,4 @@
-<section class="relative max-w-[1025px] mx-auto pt-[150px] pb-[75px] px-10 lg:px-0">
+<section class="relative max-w-[1025px] mx-auto sm:pt-[150px] pt-[75px] pb-[75px] px-10 lg:px-0">
     <div class="flex justify-between items-start md:items-center flex-col md:flex-row gap-y-[24px] md:gap-y-[0px]">
         <div class="flex flex-col gap-y-[16px]">
             <x-green-title title="projects" />

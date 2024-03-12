@@ -1,7 +1,7 @@
 @extends('layouts.app.app')
 
 @section('content')
-    <section class="relative max-w-[1025px] mx-auto pt-[150px] pb-[75px]">
+    <section class="relative max-w-[1025px] mx-auto sm:pt-[150px] pt-[75px] pb-[75px]">
         <div class="flex justify-start lg:justify-between items-start lg:items-center flex-col lg:flex-row gap-y-[75px]">
             <div class="flex flex-col gap-y-[16px] md:gap-y-[40px] px-10 lg:px-0">
                 <div class="flex flex-col gap-y-[16px]">
