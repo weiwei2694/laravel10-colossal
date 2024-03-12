@@ -10,7 +10,7 @@ $lists = [
     ],
     [
         'name' => 'Projects',
-        'url' => '/project',
+        'url' => '/projects',
     ],
     [
         'name' => 'About',
@@ -22,7 +22,9 @@ $lists = [
 <nav class="relative max-w-[1025px] mx-auto z-10 px-10 lg:px-0">
     <div class="flex items-center justify-between">
         {{-- Logo --}}
-        <img src="/assets/logo.svg" alt="Colossal Logo" class="w-[138.25px] h-[31px] max-sm:block sm:hidden lg:block">
+        <a href="/">
+            <img src="/assets/logo.svg" alt="Colossal Logo" class="w-[138.25px] h-[31px] max-sm:block sm:hidden lg:block">
+        </a>
         {{-- Lists - Desktop --}}
         <ul class="hidden sm:flex items-center gap-x-[30px] lg:gap-x-[50px]">
             @foreach ($lists as $list)
