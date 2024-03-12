@@ -9,8 +9,7 @@
                 you to tell the problem</h1>
             <div class="flex items-center flex-col sm:flex-row gap-[10px]">
                 <x-button-send-quote />
-                <a href="/" class="w-[162px] h-[52px] grid place-items-center bg-white/10 text-white rouned-3">Ask
-                    Us</a>
+                <x-button-ask-us />
             </div>
         </div>
     </div>
