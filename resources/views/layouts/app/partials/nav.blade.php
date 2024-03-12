@@ -22,8 +22,8 @@ $lists = [
 <nav class="relative max-w-[1025px] mx-auto z-10 px-10 lg:px-0">
     <div class="flex items-center justify-between">
         {{-- Logo --}}
-        <a href="/">
-            <img src="/assets/logo.svg" alt="Colossal Logo" class="w-[138.25px] h-[31px] max-sm:block sm:hidden lg:block">
+        <a href="/" class="sm:hidden lg:block">
+            <img src="/assets/logo.svg" alt="Colossal Logo" class="w-[138.25px] h-[31px]">
         </a>
         {{-- Lists - Desktop --}}
         <ul class="hidden sm:flex items-center gap-x-[30px] lg:gap-x-[50px]">
