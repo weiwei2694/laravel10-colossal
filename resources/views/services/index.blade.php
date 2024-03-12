@@ -3,4 +3,6 @@
 @section('content')
     {{-- Section - Services --}}
     @include('services.partials.services')
+    {{-- Section - Ui Design --}}
+    @include('services.partials.ui-design')
 @endsection
