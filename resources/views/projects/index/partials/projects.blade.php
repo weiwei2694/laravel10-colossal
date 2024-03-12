@@ -4,7 +4,6 @@
         @include('components.cards-project')
     </div>
 
-    {{-- TODO: Infinite Scrolling --}}
     <div id="container-load-more" class="grid place-items-center pt-[90px]">
         <button id="load-more"
             class="bg-white/10 text-white rounded-[3px] w-[193px] h-[52px] grid place-items-center">Load More</button>

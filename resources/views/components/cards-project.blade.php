@@ -11,8 +11,7 @@
             <p class="leading-[34px] font-normal text-[16px] text-white/60">
                 {{ $project->is_desktop ? 'Desktop App' : 'Mobile App' }}</p>
         </div>
-        {{-- TODO: redirect to detail project --}}
-        <a href="/"
+        <a href="{{ route('projects.show', $project->id) }}"
             class="w-[100px] h-[39px] grid place-items-center border border-white rounded-full text-white">Detail</a>
     </div>
 @endforeach

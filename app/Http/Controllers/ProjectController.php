@@ -20,6 +20,12 @@ class ProjectController extends Controller
         }
 
         return response()
-            ->view('projects.index', compact('categories', 'projects'));
+            ->view('projects.index.index', compact('categories', 'projects'));
+    }
+
+    public function show(Project $project): Response
+    {
+        return response()
+            ->view('projects.show.show', compact('project'));
     }
 }

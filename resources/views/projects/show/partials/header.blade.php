@@ -1,0 +1,8 @@
+<section class="relative max-w-[1025px] mx-auto pt-[150px] pb-[75px] px-10 lg:px-0">
+    <div class="grid place-items-center text-center">
+        <div class="flex flex-col gap-y-[16px]">
+            <x-green-title title="PROJECT DETAIL" />
+            <x-description-bold-36 class="max-w-fit md:max-w-[500px]" title="The Desktop App Landing Page" />
+        </div>
+    </div>
+</section>

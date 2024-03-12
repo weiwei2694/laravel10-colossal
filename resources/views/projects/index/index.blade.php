@@ -2,9 +2,9 @@
 
 @section('content')
     {{-- Section - Header --}}
-    @include('projects.partials.header')
+    @include('projects.index.partials.header')
     {{-- Section - Projects --}}
-    @include('projects.partials.projects')
+    @include('projects.index.partials.projects')
 @endsection
 
 @section('scripts')
