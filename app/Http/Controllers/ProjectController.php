@@ -25,7 +25,13 @@ class ProjectController extends Controller
 
     public function show(Project $project): Response
     {
+        $projects = Project::where('id', '!=', $project->id)
+            ->where('project_category_id', $project->project_category_id)
+            ->orderBy('created_at', 'desc')
+            ->take(2)
+            ->get();
+
         return response()
-            ->view('projects.show.show', compact('project'));
+            ->view('projects.show.show', compact('project', 'projects'));
     }
 }
