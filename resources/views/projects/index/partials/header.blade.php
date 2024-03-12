@@ -1,5 +1,5 @@
 <section class="relative max-w-[1025px] mx-auto pt-[150px] pb-[75px] px-10 lg:px-0">
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-start md:items-center flex-col md:flex-row gap-y-[24px] md:gap-y-[0px]">
         <div class="flex flex-col gap-y-[16px]">
             <x-green-title title="projects" />
             <x-description-bold-36 class="max-w-fit md:max-w-[600px]"
