@@ -9,7 +9,7 @@ class Quote extends Model
 {
     use HasFactory;
 
-    static public const COMPANY_SIZE = ["Small", "Medium", "Large"];
+    public const COMPANY_SIZE = ["Small", "Medium", "Large"];
 
     protected $table = "quotes";
     protected $primaryKey = "id";
