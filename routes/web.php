@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects.ind
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 Route::get('/quote', [QuoteController::class, 'index'])->name('quote.index');
 Route::post('/quote', [QuoteController::class, 'store'])->name('quote.store');
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
