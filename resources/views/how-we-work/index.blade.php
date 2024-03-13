@@ -5,4 +5,6 @@
     @include('how-we-work.partials.how-we-work')
     {{-- Section - Step 01 --}}
     @include('how-we-work.partials.step-01')
+    {{-- Section - Step 02 --}}
+    @include('how-we-work.partials.step-02')
 @endsection
