@@ -50,14 +50,14 @@
 
                 <!-- Created At -->
                 <div class="flex flex-col">
-                    <label for="created_at" class="font-medium">Category</label>
+                    <label for="created_at" class="font-medium">Created At</label>
                     <input type="text" name="created_at" id="created_at" value="{{ $project->created_at }}"
                         class="dashboard-input" disabled>
                 </div>
 
                 <!-- Updated At -->
                 <div class="flex flex-col">
-                    <label for="updated_at" class="font-medium">Category</label>
+                    <label for="updated_at" class="font-medium">Updated At</label>
                     <input type="text" name="updated_at" id="updated_at"
                         value="{{ $project->updated_at->diffForHumans() }}" class="dashboard-input" disabled>
                 </div>
