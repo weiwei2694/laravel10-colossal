@@ -10,6 +10,6 @@ class ServiceController extends Controller
     public function index(): Response
     {
         return response()
-            ->view('services.index');
+            ->view('services.index.index');
     }
 }
