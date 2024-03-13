@@ -45,4 +45,13 @@ class FaqController extends Controller
             ->route('dashboard.faqs.index')
             ->with('success', 'Faq Created Successfully.');
     }
+
+    public function destroy(Faq $faq): RedirectResponse
+    {
+        $faq->delete();
+
+        return redirect()
+            ->route('dashboard.faqs.index')
+            ->with('success', 'Faq Deleted Successfully.');
+    }
 }
