@@ -3,4 +3,6 @@
 @section('content')
     {{-- Section - About --}}
     @include('about.partials.about')
+    {{-- Section - Statistics --}}
+    @include('about.partials.statistics')
 @endsection
