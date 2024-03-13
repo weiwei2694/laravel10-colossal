@@ -12,4 +12,10 @@ class ServiceController extends Controller
         return response()
             ->view('services.index.index');
     }
+
+    public function show(): Response
+    {
+        return response()
+            ->view('services.show.show');
+    }
 }
