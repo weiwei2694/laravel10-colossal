@@ -5,4 +5,6 @@
     @include('services.show.partials.development')
     {{-- Section - Development - Content --}}
     @include('services.show.partials.development-content')
+    {{-- Section - Features --}}
+    @include('services.show.partials.features')
 @endsection
