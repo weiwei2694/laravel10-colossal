@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Faq;
 use Illuminate\Http\Response;
 
 class ServiceController extends Controller
@@ -15,7 +15,9 @@ class ServiceController extends Controller
 
     public function show(): Response
     {
+        $faqs = Faq::latest()->take(6)->get();
+
         return response()
-            ->view('services.show.show');
+            ->view('services.show.show', compact('faqs'));
     }
 }
