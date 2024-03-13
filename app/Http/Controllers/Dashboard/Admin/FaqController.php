@@ -46,6 +46,12 @@ class FaqController extends Controller
             ->with('success', 'Faq Created Successfully.');
     }
 
+    public function show(Faq $faq): Response
+    {
+        return response()
+            ->view('dashboard.admin.faqs.show', compact('faq'));
+    }
+
     public function edit(Faq $faq): Response
     {
         $categories = FaqCategory::all();
