@@ -5,4 +5,6 @@
     @include('services.partials.services')
     {{-- Section - Ui Design --}}
     @include('services.partials.ui-design')
+    {{-- Section - Development --}}
+    @include('services.partials.development')
 @endsection
