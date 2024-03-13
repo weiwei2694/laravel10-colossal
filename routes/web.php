@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController as DashboardProjectController, TestimonialController};
+use App\Http\Controllers\Dashboard\Admin\FaqController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
@@ -46,5 +47,6 @@ Route::prefix('dashboard')
             Route::resource('sponsors', SponsorController::class);
             Route::resource('projects', DashboardProjectController::class);
             Route::resource('testimonials', TestimonialController::class);
+            Route::resource('faqs', FaqController::class);
         });
     });
