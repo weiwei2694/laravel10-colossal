@@ -49,6 +49,11 @@ body {
     @apply md:w-full md:ml-0;
 }
 
+/* Faq */
+.accordion-header.active .transform {
+    transform: rotate(180deg);
+}
+
 /* Splide */
 .splide__slide {
     transition: 0.5s;
