@@ -3,18 +3,22 @@ $lists = [
     [
         'name' => 'Services',
         'url' => '/services',
+        'named' => 'services.*',
     ],
     [
         'name' => 'How We Work',
         'url' => '/how-we-work',
+        'named' => 'how-we-work.*',
     ],
     [
         'name' => 'Projects',
         'url' => '/projects',
+        'named' => 'projects.*',
     ],
     [
         'name' => 'About',
         'url' => '/about',
+        'named' => 'about.*',
     ],
 ];
 ?>
@@ -28,7 +32,9 @@ $lists = [
         {{-- Lists - Desktop --}}
         <ul class="hidden sm:flex items-center gap-x-[30px] lg:gap-x-[50px]">
             @foreach ($lists as $list)
-                <li class="text-white/80 font-normal text-[16px]">
+                <li
+                    class="text-[16px]
+                    {{ request()->routeIs($list['named']) ? 'text-white font-bold' : 'font-normal text-white/80' }}">
                     <a href="{{ $list['url'] }}">{{ $list['name'] }}</a>
                 </li>
             @endforeach
