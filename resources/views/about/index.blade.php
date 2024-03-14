@@ -5,4 +5,6 @@
     @include('about.partials.about')
     {{-- Section - Statistics --}}
     @include('about.partials.statistics')
+    {{-- Section - Sponsors --}}
+    @include('home.partials.sponsors')
 @endsection
