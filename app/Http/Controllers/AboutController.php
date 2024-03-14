@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sponsor;
+use App\Models\User;
 use Illuminate\Http\Response;
 
 class AboutController extends Controller
@@ -10,8 +11,9 @@ class AboutController extends Controller
     public function index(): Response
     {
         $sponsors = Sponsor::all();
+        $ourTeams = User::where('email', '!=', 'admin@gmail.com')->get();
 
         return response()
-            ->view('about.index', compact('sponsors'));
+            ->view('about.index', compact('sponsors', 'ourTeams'));
     }
 }

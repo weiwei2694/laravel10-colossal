@@ -7,4 +7,6 @@
     @include('about.partials.statistics')
     {{-- Section - Sponsors --}}
     @include('home.partials.sponsors')
+    {{-- Section - Our Team --}}
+    @include('about.partials.our-team')
 @endsection
