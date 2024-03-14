@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, Pro
 use App\Http\Controllers\Dashboard\Admin\FaqController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\HowWeWorkController;
+use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuoteController;
@@ -32,6 +33,7 @@ Route::get('/services', [ServiceController::class, 'index'])->name('services.ind
 Route::get('/services/service-detail', [ServiceController::class, 'show'])->name('services.show');
 Route::get('/how-we-work', [HowWeWorkController::class, 'index'])->name('how-we-work.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+Route::get('/pricing', [PricingController::class, 'index'])->name('pricing.index');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
