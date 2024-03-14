@@ -14,6 +14,6 @@
             <li class="leading-[36px] text-white font-medium text-[16px]">{{ $item }}</li>
         @endforeach
     </ul>
-    <a href="/"
+    <a href="/pricing"
         class="w-full h-[52px] grid place-items-center bg-white rounded-[3px] text-[#3F2379] font-semibold text-[16px]">Detail</a>
 </div>

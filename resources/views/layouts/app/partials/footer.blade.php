@@ -5,23 +5,23 @@ $lists = [
         'childrens' => [
             [
                 'name' => 'Web Development',
-                'url' => '/',
+                'url' => '/pricing',
             ],
             [
                 'name' => 'App Development',
-                'url' => '/',
+                'url' => '/pricing',
             ],
             [
                 'name' => 'UI Design',
-                'url' => '/',
+                'url' => '/pricing',
             ],
             [
                 'name' => 'Consultation',
-                'url' => '/',
+                'url' => '/pricing',
             ],
             [
                 'name' => 'Maintenance',
-                'url' => '/',
+                'url' => '/pricing',
             ],
         ],
     ],
@@ -30,15 +30,15 @@ $lists = [
         'childrens' => [
             [
                 'name' => 'About',
-                'url' => '/',
+                'url' => '/about',
             ],
             [
                 'name' => 'Contact',
-                'url' => '/',
+                'url' => '/contact',
             ],
             [
                 'name' => 'Send Quote',
-                'url' => '/',
+                'url' => '/quote',
             ],
             [
                 'name' => 'Privacy Policy',
@@ -46,7 +46,7 @@ $lists = [
             ],
             [
                 'name' => 'Term of Service',
-                'url' => '/',
+                'url' => '/term-of-service',
             ],
             [
                 'name' => 'Jobs',
@@ -67,7 +67,7 @@ $lists = [
             ],
             [
                 'name' => 'License',
-                'url' => '/',
+                'url' => '/term-of-service',
             ],
             [
                 'name' => 'Sitemap',
@@ -92,7 +92,7 @@ $lists = [
                 <h3 class="text-white font-medium text-[14px] tracking-widest uppercase">{{ $list['name'] }}</h3>
                 <ul class="flex flex-col gap-y-[10px]">
                     @foreach ($list['childrens'] as $children)
-                        <li class="text-[16px] font-medium leading-[28px] text-white/60">
+                        <li class="text-[16px] font-medium leading-[28px] text-white/60 hover:text-white transition">
                             <a href="{{ $children['url'] }}">{{ $children['name'] }}</a>
                         </li>
                     @endforeach
