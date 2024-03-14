@@ -12,24 +12,6 @@ class HomeController extends Controller
 {
     public function __invoke(): Response
     {
-        $lists = [
-            [
-                "name" => "Services",
-                "url" => "/services",
-            ],
-            [
-                "name" => "How We Work",
-                "url" => "/how-we-work"
-            ],
-            [
-                "name" => "Projects",
-                "url" => "/project"
-            ],
-            [
-                "name" => "About",
-                "url" => "/about"
-            ]
-        ];
         $features = [
             [
                 "icon" => "/assets/figma.svg",
@@ -69,6 +51,6 @@ class HomeController extends Controller
         $testimonials = Testimonial::all();
 
         return response()
-            ->view('home.home', compact("lists", "features", "sponsors", "projects", "pricing", "testimonials"));
+            ->view('home.home', compact("features", "sponsors", "projects", "pricing", "testimonials"));
     }
 }
