@@ -11,6 +11,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TermOfServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,7 @@ Route::get('/services/service-detail', [ServiceController::class, 'show'])->name
 Route::get('/how-we-work', [HowWeWorkController::class, 'index'])->name('how-we-work.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/pricing', [PricingController::class, 'index'])->name('pricing.index');
+Route::get('/term-of-service', [TermOfServiceController::class, 'index'])->name('term-of-service.index');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
