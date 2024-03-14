@@ -1,17 +1,8 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController as DashboardProjectController, TestimonialController};
-use App\Http\Controllers\Dashboard\Admin\FaqController;
+use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController as DashboardProjectController, TestimonialController, FaqController as DashboardFaController};
 use App\Http\Controllers\Dashboard\PostController;
-use App\Http\Controllers\HowWeWorkController;
-use App\Http\Controllers\PricingController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\QuoteController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\TermOfServiceController;
+use App\Http\Controllers\{AuthController, AboutController, HowWeWorkController, FaqController, PricingController, ProjectController, HomeController, QuoteController, ServiceController, TermOfServiceController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +27,7 @@ Route::get('/how-we-work', [HowWeWorkController::class, 'index'])->name('how-we-
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/pricing', [PricingController::class, 'index'])->name('pricing.index');
 Route::get('/term-of-service', [TermOfServiceController::class, 'index'])->name('term-of-service.index');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
@@ -55,6 +47,6 @@ Route::prefix('dashboard')
             Route::resource('sponsors', SponsorController::class);
             Route::resource('projects', DashboardProjectController::class);
             Route::resource('testimonials', TestimonialController::class);
-            Route::resource('faqs', FaqController::class);
+            Route::resource('faqs', DashboardFaController::class);
         });
     });
