@@ -32,8 +32,8 @@
             </div>
         </div>
         <div class="grid place-items-center">
-            <h6 class="font-medium text-[16px] tracking-[32%] text-white">Didn't find an answer? <a href="/"
-                    class="font-bold text-primary border-b pb-1 border-b-primary">Do not hesitate to ask!</a></h6>
+            <h6 class="font-medium text-[16px] tracking-[32%] text-white">Didn't find an answer? <a href="/faq"
+                    class="font-bold text-primary border-b pb-1 border-b-primary">Click here to see more FAQs!</a></h6>
         </div>
     </div>
 </section>
