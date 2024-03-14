@@ -5,4 +5,6 @@
     @include('pricing.partials.pricing')
     {{-- Section - Pricing Content --}}
     @include('pricing.partials.pricing-content')
+    {{-- Section - Faqs --}}
+    @include('services.show.partials.faqs')
 @endsection
