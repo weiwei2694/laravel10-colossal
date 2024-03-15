@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController as DashboardProjectController, TestimonialController, FaqController as DashboardFaController};
 use App\Http\Controllers\Dashboard\PostController;
-use App\Http\Controllers\{AuthController, AboutController, HowWeWorkController, FaqController, PricingController, ProjectController, HomeController, QuoteController, ServiceController, TermOfServiceController};
+use App\Http\Controllers\{AuthController, AboutController, HowWeWorkController, FaqController, PricingController, ProjectController, HomeController, QuoteController, ServiceController, TermOfServiceController, ContactController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +28,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/pricing', [PricingController::class, 'index'])->name('pricing.index');
 Route::get('/term-of-service', [TermOfServiceController::class, 'index'])->name('term-of-service.index');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
