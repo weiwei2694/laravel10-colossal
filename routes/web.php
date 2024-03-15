@@ -29,6 +29,7 @@ Route::get('/pricing', [PricingController::class, 'index'])->name('pricing.index
 Route::get('/term-of-service', [TermOfServiceController::class, 'index'])->name('term-of-service.index');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');

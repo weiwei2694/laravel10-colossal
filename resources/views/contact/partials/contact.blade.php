@@ -29,7 +29,7 @@
         </div>
         <div
             class="rounded-2xl sm:rounded-[5px] w-full lg:w-[412px] h-fit bg-white/5 sm:pt-[58px] pt-[48px] sm:px-[40px] px-10 sm:pb-[40px] pb-[48px]">
-            <form class="flex flex-col gap-y-[26px]">
+            <form class="flex flex-col gap-y-[26px]" method="POST" action={{ route('contact.store') }}>
                 @csrf
 
                 <div class="flex gap-x-[20px] flex-col sm:flex-row gap-y-[26px] sm:gap-y-0">
