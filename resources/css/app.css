@@ -50,8 +50,11 @@ body {
 }
 
 /* Faq */
-.accordion-header.active .transform {
+.accordion-header .transform {
     transform: rotate(180deg);
+}
+.accordion-header.active .transform {
+    transform: rotate(0deg);
 }
 
 /* Splide */
