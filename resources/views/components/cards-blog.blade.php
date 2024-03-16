@@ -17,14 +17,20 @@
         </div>
         <div class="flex flex-row gap-x-4">
             <img src="{{ asset('/storage/' . $blog->user->image) }}" alt="{{ $blog->user->name }}"
-                class="w-[50px] h-[50px] object-cover">
+                class="w-[50px] h-[50px] object-cover rounded-full">
             <div class="flex flex-col gap-y-2">
                 <h6 class="font-semibold text-[16px] text-white">{{ $blog->user->name }}</h6>
-                <p class="flex flex-row gap-x-1 font-normal text-[14px] text-white/60">
-                    {{ $blog->created_at->format('M d') }}
-                    •
-                    {{ $blog->reading_time }}
-                </p>
+                <div class="flex flex-row gap-x-2 font-normal text-[14px] text-white/60">
+                    <p>
+                        {{ $blog->created_at->format('M d') }}
+                    </p>
+                    <p>
+                        •
+                    </p>
+                    <p>
+                        {{ $blog->reading_time }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>

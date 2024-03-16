@@ -2,14 +2,14 @@
 
 @section('content')
     {{-- Section - Blog --}}
-    @include('blog.index.partials.blog')
+    @include('blogs.index.partials.blog')
     {{-- Section - Blog - Content --}}
-    @include('blog.index.partials.blog-content')
+    @include('blogs.index.partials.blog-content')
 @endsection
 
 @section('scripts')
     <script>
-        const ENDPOINT = "{{ route('blog.index') }}";
+        const ENDPOINT = "{{ route('blogs.index') }}";
         let page = 1;
 
         $('#load-more').click(function() {

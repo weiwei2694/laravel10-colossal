@@ -19,6 +19,6 @@ class BlogController extends Controller
         }
 
         return response()
-            ->view('blog.index.index', compact('blogs'));
+            ->view('blogs.index.index', compact('blogs'));
     }
 }
