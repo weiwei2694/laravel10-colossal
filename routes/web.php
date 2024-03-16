@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController as DashboardProjectController, TestimonialController, FaqController as DashboardFaController};
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\{AuthController, AboutController, HowWeWorkController, FaqController, PricingController, ProjectController, HomeController, QuoteController, ServiceController, TermOfServiceController, ContactController};
@@ -30,6 +31,7 @@ Route::get('/term-of-service', [TermOfServiceController::class, 'index'])->name(
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
