@@ -12,7 +12,7 @@ class ProjectController extends Controller
     public function index(): Response|JsonResponse
     {
         $categories = ProjectCategory::has('projects')->get();
-        $projects = Project::where('project_category_id', request()->query('category_id'))->paginate(1);
+        $projects = Project::where('project_category_id', request()->query('category_id'))->paginate(4);
 
         if (request()->ajax()) {
             $view = view('components.cards-project', compact('projects'))->render();
