@@ -4,8 +4,7 @@
             <img src="{{ asset('/storage/' . $blog->image) }}" alt="Image Blog" class="w-full lg:w-fit object-cover" />
         </div>
         <div class="flex flex-col gap-y-1 sm:gap-y-2">
-            {{-- TODO: redirect to detail blog - route('blog.show', $blog->id) --}}
-            <a href="/">
+            <a href="{{ route('blogs.show', $blog->id) }}">
                 <h4
                     class="text-white leading-[34px] font-bold
                         text-[20px] hover:underline hover:text-white/90 cursor-pointer">
