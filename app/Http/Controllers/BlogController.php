@@ -21,4 +21,10 @@ class BlogController extends Controller
         return response()
             ->view('blogs.index.index', compact('blogs'));
     }
+
+    public function show(Post $post): Response
+    {
+        return response()
+            ->view('blogs.show.show', compact('post'));
+    }
 }

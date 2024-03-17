@@ -32,6 +32,7 @@ Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blogs/{post}', [BlogController::class, 'show'])->name('blogs.show');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/auth/login', [AuthController::class, 'store'])->name('login')->middleware('guest');
