@@ -24,7 +24,9 @@ class BlogController extends Controller
 
     public function show(Post $post): Response
     {
+        $blogs = Post::latest()->take(3)->where('id', '!=', $post->id)->get();
+
         return response()
-            ->view('blogs.show.show', compact('post'));
+            ->view('blogs.show.show', compact('post', 'blogs'));
     }
 }
