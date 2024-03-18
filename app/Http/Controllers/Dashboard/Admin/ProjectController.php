@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Project;
-use App\Models\ProjectCategory;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Models\{Project, ProjectCategory};
+use Illuminate\Http\{Response, RedirectResponse};
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -15,14 +12,24 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(): Response|RedirectResponse
     {
-        $projects = Project::paginate(10);
+        $categories = ProjectCategory::all();
+
+        $projects = Project::query();
+        if (request('category') && request('category') !== "all") {
+            $projects->where('project_category_id', request('category'));
+        }
+        if (
+            request('desktop') === "yes" ||
+            request('desktop') === "no"
+        ) {
+            $projects->where('is_desktop', request('desktop') === "yes");
+        }
+        $projects = $projects->with('projectCategory')->paginate(10);
 
         return response()
-            ->view('dashboard.admin.projects.index', [
-                'projects' => $projects
-            ]);
+            ->view('dashboard.admin.projects.index', compact('projects', 'categories'));
     }
 
     /**
