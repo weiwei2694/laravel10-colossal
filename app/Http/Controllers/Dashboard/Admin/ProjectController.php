@@ -69,7 +69,7 @@ class ProjectController extends Controller
         $project->description = request()->input('description');
         $project->client = request()->input('client');
         $project->technology = $technology;
-        $project->is_desktop = request()->input('is_desktop') === "Yes";
+        $project->is_desktop = request()->input('is_desktop') == "1";
         $project->project_category_id = request()->input('project_category_id');
         $project->image = $path;
         $project->save();
@@ -128,7 +128,7 @@ class ProjectController extends Controller
         $project->description = request()->input('description');
         $project->client = request()->input('client');
         $project->technology = $technology;
-        $project->is_desktop = request()->input('is_desktop') === "Yes";
+        $project->is_desktop = request()->input('is_desktop') == "1";
         $project->project_category_id = request()->input('project_category_id');
         if (request()->hasFile('image')) {
             Storage::disk('public')->delete($project->image);
