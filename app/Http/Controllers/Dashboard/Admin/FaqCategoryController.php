@@ -37,4 +37,13 @@ class FaqCategoryController extends Controller
             ->route('dashboard.faq-categories.index')
             ->with('success', 'Faq category created successfully.');
     }
+
+    public function destroy(FaqCategory $faq_category): RedirectResponse
+    {
+        $faq_category->delete();
+
+        return redirect()
+            ->route('dashboard.faq-categories.index')
+            ->with('success', 'Faq category deleted successfully.');
+    }
 }
