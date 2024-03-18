@@ -9,6 +9,13 @@
                     <x-description-medium class="text-center">No comments yet ...</x-description-medium>
                 @endif
             </div>
+            @if (!empty($post->comments->toArray()))
+                <div id="container-load-more" class="grid place-items-center">
+                    <button id="load-more"
+                        class="bg-white/10 text-white rounded-[3px] w-[193px] h-[52px] grid place-items-center">Load
+                        More</button>
+                </div>
+            @endif
         </div>
         <div class="bg-white/5 rounded-[3px] py-12 px-10">
             <form class="flex flex-col gap-y-10" action="{{ route('blogs.create-comment', $post->id) }}" method="POST">

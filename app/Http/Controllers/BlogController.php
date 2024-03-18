@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
+use Illuminate\Http\{Response, JsonResponse, RedirectResponse};
 
 class BlogController extends Controller
 {
@@ -44,11 +42,17 @@ class BlogController extends Controller
             ->with('success', 'Comment has been successfully created');
     }
 
-    public function show(Post $post): Response
+    public function show(Post $post): Response|JsonResponse
     {
         $blogs = Post::latest()->take(3)->where('id', '!=', $post->id)->get();
+        $comments = Comment::where('post_id', $post->id)->paginate(3);
+
+        if (request()->ajax()) {
+            $view = view('components.cards-comment', compact('comments'))->render();
+            return response()->json(['html' => $view]);
+        }
 
         return response()
-            ->view('blogs.show.show', compact('post', 'blogs'));
+            ->view('blogs.show.show', compact('post', 'blogs', 'comments'));
     }
 }

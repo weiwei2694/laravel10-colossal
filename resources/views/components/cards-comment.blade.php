@@ -1,4 +1,4 @@
-@foreach ($post->comments as $comment)
+@foreach ($comments as $comment)
     <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 border-b border-b-white/10 py-12">
         <img src="{{ asset('/assets/comment-pp.jpg') }}" alt="Comment PP"
             class="w-[50px] h-[50px] rounded-[100px] object-cover">
