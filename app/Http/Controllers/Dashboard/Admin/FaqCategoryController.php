@@ -26,7 +26,7 @@ class FaqCategoryController extends Controller
     public function store(): RedirectResponse
     {
         request()->validate([
-            'name' => 'required|max:74'
+            'name' => 'required|max:74|unique:faq_categories,name',
         ]);
 
         $faqCategory = new FaqCategory();
@@ -36,6 +36,26 @@ class FaqCategoryController extends Controller
         return redirect()
             ->route('dashboard.faq-categories.index')
             ->with('success', 'Faq category created successfully.');
+    }
+
+    public function edit(FaqCategory $faq_category): Response
+    {
+        return response()
+            ->view('dashboard.admin.faq-category.edit', compact('faq_category'));
+    }
+
+    public function update(FaqCategory $faq_category): RedirectResponse
+    {
+        request()->validate([
+            'name' => "required|max:74|unique:faq_categories,name,$faq_category->id"
+        ]);
+
+        $faq_category->name = request()->input('name');
+        $faq_category->save();
+
+        return redirect()
+            ->route('dashboard.faq-categories.index')
+            ->with('success', 'Faq category updated successfully.');
     }
 
     public function destroy(FaqCategory $faq_category): RedirectResponse
