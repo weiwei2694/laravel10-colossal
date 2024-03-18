@@ -38,6 +38,12 @@ class ProjectCategoryController extends Controller
             ->with('success', 'Project category created successfully.');
     }
 
+    public function show(ProjectCategory $project_category): Response
+    {
+        return response()
+            ->view('dashboard.admin.project-category.show', compact('project_category'));
+    }
+
     public function destroy(ProjectCategory $project_category): RedirectResponse
     {
         $project_category->delete();
