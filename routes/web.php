@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController as DashboardProjectController, TestimonialController, FaqController as DashboardFaController};
+use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController as DashboardProjectController, TestimonialController, FaqController as DashboardFaqController, FaqCategoryController};
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\{AuthController, AboutController, HowWeWorkController, FaqController, PricingController, ProjectController, HomeController, QuoteController, ServiceController, TermOfServiceController, ContactController};
 use Illuminate\Support\Facades\Route;
@@ -53,6 +53,7 @@ Route::prefix('dashboard')
             Route::resource('sponsors', SponsorController::class);
             Route::resource('projects', DashboardProjectController::class);
             Route::resource('testimonials', TestimonialController::class);
-            Route::resource('faqs', DashboardFaController::class);
+            Route::resource('faqs', DashboardFaqController::class);
+            Route::resource('faq-categories', FaqCategoryController::class);
         });
     });
