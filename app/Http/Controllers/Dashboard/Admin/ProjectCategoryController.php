@@ -37,4 +37,13 @@ class ProjectCategoryController extends Controller
             ->route('dashboard.project-categories.index')
             ->with('success', 'Project category created successfully.');
     }
+
+    public function destroy(ProjectCategory $project_category): RedirectResponse
+    {
+        $project_category->delete();
+
+        return redirect()
+            ->route('dashboard.project-categories.index')
+            ->with('success', 'Project category deleted successfully.');
+    }
 }
