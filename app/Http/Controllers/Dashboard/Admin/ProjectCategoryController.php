@@ -44,6 +44,26 @@ class ProjectCategoryController extends Controller
             ->view('dashboard.admin.project-category.show', compact('project_category'));
     }
 
+    public function edit(ProjectCategory $project_category): Response
+    {
+        return response()
+            ->view('dashboard.admin.project-category.edit', compact('project_category'));
+    }
+
+    public function update(ProjectCategory $project_category): RedirectResponse
+    {
+        request()->validate([
+            'name' => "required|max:74|unique:project_categories,name,$project_category->id"
+        ]);
+
+        $project_category->name = request()->input('name');
+        $project_category->save();
+
+        return redirect()
+            ->route('dashboard.project-categories.index')
+            ->with('success', 'Project category updated successfully.');
+    }
+
     public function destroy(ProjectCategory $project_category): RedirectResponse
     {
         $project_category->delete();
