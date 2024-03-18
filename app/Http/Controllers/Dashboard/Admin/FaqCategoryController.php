@@ -38,6 +38,12 @@ class FaqCategoryController extends Controller
             ->with('success', 'Faq category created successfully.');
     }
 
+    public function show(FaqCategory $faq_category): Response
+    {
+        return response()
+            ->view('dashboard.admin.faq-category.show', compact('faq_category'));
+    }
+
     public function edit(FaqCategory $faq_category): Response
     {
         return response()
