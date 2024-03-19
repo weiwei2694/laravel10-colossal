@@ -2,48 +2,68 @@
 
 @section('content')
     <div class="flex flex-col gap-y-3">
-        <section class="border bg-white rounded shadow-sm p-[20px]">
+        <section class="border bg-white rounded shadow-sm p-[20px] max-xl:hidden xl:block">
             <h1 class="font-semibold text-black text-lg">All Projects</h1>
         </section>
         <section class="border bg-white rounded shadow-sm">
             <div class="p-[20px] border-b">
+                {{-- desktop --}}
                 <form id="filterForm" action="{{ route('dashboard.projects.index') }}" method="GET"
-                    class="flex flex-row gap-x-[20px]">
+                    class="max-xl:hidden xl:flex flex-row justify-between gap-x-20">
                     <div class="flex flex-col gap-y-2">
-                        <label for="category" class="font-medium text-card-dark/60">Category</label>
-                        <select name="category" id="category" class="outline-none p-2 border-2 rounded-lg"
-                            class="font-semibold">
-                            <option value="all" class="font-medium text-card-dark"
-                                @if (request('category') == 'all') selected @endif>
-                                All
-                            </option>
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" class="font-medium text-card-dark"
-                                    @if (request('category') == $category->id) selected @endif>
-                                    {{ $category->name }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <label for="search" class="font-medium text-card-dark/60">Search</label>
+                        <div class="flex flex-row gap-x-2">
+                            <input type="text" class="outline-none p-2 border-2 rounded-lg" id="search" name="search"
+                                placeholder="Search for client name or title" value="{{ request('search') }}">
+                            <button type="submit"
+                                class="h-full px-8 grid place-items-center bg-blue-500 hover:bg-blue-500/90 font-semibold text-white rounded-lg">Search</button>
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-y-2">
-                        <label for="desktop" class="font-medium text-card-dark/60">Show Desktop Content</label>
-                        <select name="desktop" id="desktop" class="outline-none p-2 border-2 rounded-lg"
-                            class="font-semibold">
-                            <option value="all" class="font-medium text-card-dark"
-                                @if (request('desktop') == 'all') selected @endif>
-                                All Content
-                            </option>
-                            <option value="yes" class="font-medium text-card-dark"
-                                @if (request('desktop') == 'yes') selected @endif>
-                                Show Desktop Only
-                            </option>
-                            <option value="no" class="font-medium text-card-dark"
-                                @if (request('desktop') == 'no') selected @endif>
-                                Hide Desktop Content
-                            </option>
-                        </select>
+                    <div class="flex flex-row gap-x-[20px]">
+                        <div class="flex flex-col gap-y-2">
+                            <label for="category" class="font-medium text-card-dark/60">Category</label>
+                            <select name="category" id="category" class="outline-none p-2 border-2 rounded-lg"
+                                class="font-semibold">
+                                <option value="all" class="font-medium text-card-dark"
+                                    @if (request('category') == 'all') selected @endif>
+                                    All
+                                </option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" class="font-medium text-card-dark"
+                                        @if (request('category') == $category->id) selected @endif>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-y-2">
+                            <label for="desktop" class="font-medium text-card-dark/60">Show Desktop Content</label>
+                            <select name="desktop" id="desktop" class="outline-none p-2 border-2 rounded-lg"
+                                class="font-semibold">
+                                <option value="all" class="font-medium text-card-dark"
+                                    @if (request('desktop') == 'all') selected @endif>
+                                    All Content
+                                </option>
+                                <option value="yes" class="font-medium text-card-dark"
+                                    @if (request('desktop') == 'yes') selected @endif>
+                                    Show Desktop Only
+                                </option>
+                                <option value="no" class="font-medium text-card-dark"
+                                    @if (request('desktop') == 'no') selected @endif>
+                                    Hide Desktop Content
+                                </option>
+                            </select>
+                        </div>
                     </div>
                 </form>
+
+                {{-- mobile - tablet --}}
+                <div class="max-xl:flex flex-row justify-between xl:hidden">
+                    <h1 class="font-semibold text-black text-lg">All Projects</h1>
+                    <button id="open-sidebar-filter" type="button" class="text-lg text-gray-600">
+                        <i class="ri-menu-line"></i>
+                    </button>
+                </div>
             </div>
             <div class="p-[20px]">
                 @if ($projects->isEmpty())
@@ -68,8 +88,7 @@
                                                 </th>
                                                 <th scope="col"
                                                     class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
-                                                    Client
-                                                    At
+                                                    Client Name
                                                 </th>
                                                 <th scope="col"
                                                     class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
@@ -150,6 +169,9 @@
             </div>
         </section>
     </div>
+
+    {{-- Sidebar Filter Form - (mobile - tablet) --}}
+    @include('dashboard.admin.projects.partials.filter-form-sidebar')
 @endsection
 
 @section('scripts')
@@ -181,12 +203,36 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('select').forEach(function(select) {
-                select.addEventListener('change', function() {
+        // Filter Form - desktop
+        document.querySelectorAll('select').forEach(function(select) {
+            select.addEventListener('change', function() {
+                if (this.closest('#filterForm')) {
                     document.getElementById('filterForm').submit();
-                });
+                }
             });
         });
+
+        // Filter Form - (mobile - tablet)
+        const containerSidebarFilter = document.getElementById('container-sidebar-filter');
+        const sidebarFilter = document.getElementById('sidebar-filter');
+        const openSidebarFilter = document.getElementById('open-sidebar-filter');
+        const closeSidebarFilter = document.getElementById('close-sidebar-filter');
+
+        containerSidebarFilter.addEventListener('click', function(event) {
+            if (!sidebarFilter.contains(event.target)) {
+                containerSidebarFilter.classList.remove('fixed');
+                containerSidebarFilter.classList.add('hidden');
+            }
+        });
+
+        openSidebarFilter.addEventListener('click', function() {
+            containerSidebarFilter.classList.remove('hidden');
+            containerSidebarFilter.classList.add('fixed');
+        });
+
+        closeSidebarFilter.addEventListener('click', function() {
+            containerSidebarFilter.classList.remove('fixed');
+            containerSidebarFilter.classList.add('hidden');
+        })
     </script>
 @endsection

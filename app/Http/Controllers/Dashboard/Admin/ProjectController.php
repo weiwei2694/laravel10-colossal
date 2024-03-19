@@ -26,6 +26,13 @@ class ProjectController extends Controller
         ) {
             $projects->where('is_desktop', request('desktop') === "yes");
         }
+        if (request('search')) {
+            $searchTerm = '%' . request('search') . '%';
+            $projects->where(function ($query) use ($searchTerm) {
+                $query->where('title', 'like', $searchTerm)
+                    ->orWhere('client', 'like', $searchTerm);
+            });
+        }
         $projects = $projects->with('projectCategory')->paginate(10);
 
         return response()
