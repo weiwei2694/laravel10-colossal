@@ -176,10 +176,6 @@
                         <a href="/dashboard/quotes"
                             class="text-gray-300 text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All</a>
                     </li>
-                    <li class="mb-4">
-                        <a href="/dashboard/quotes/create"
-                            class="text-gray-300 text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Create</a>
-                    </li>
                 </ul>
             </li>
         </ul>
