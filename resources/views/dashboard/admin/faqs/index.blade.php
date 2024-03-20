@@ -48,71 +48,82 @@
                 </div>
             </div>
             <div class="p-[20px]">
-                <div class="flex flex-col">
-                    <div class="-m-1.5 overflow-x-auto">
-                        <div class="p-1.5 min-w-full inline-block align-middle">
-                            <div class="overflow-hidden">
-                                <table class="min-w-full divide-y divide-gray-200">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Id
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
-                                                Question
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
-                                                Category
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
-                                                Action
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-gray-200">
-                                        @foreach ($faqs as $faq)
+                @if ($faqs->isEmpty())
+                    <div class="grid place-items-center">
+                        <h4 class="text-card-dark/60 font-semibold">No Faqs ...</h4>
+                    </div>
+                @else
+                    <div class="flex flex-col">
+                        <div class="-m-1.5 overflow-x-auto">
+                            <div class="p-1.5 min-w-full inline-block align-middle">
+                                <div class="overflow-hidden">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                        <thead>
                                             <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                                                    {{ $faq->id }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                                                    {{ $faq->question }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                                                    {{ $faq->faqCategory->name }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-start text-sm font-medium">
-                                                    <div class="flex items-center gap-x-[20px]">
-                                                        <div>
-                                                            <form id="delete-form"
-                                                                action="{{ route('dashboard.faqs.destroy', '__id__') }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                            </form>
-
-                                                            <button onclick="deletePost({{ $faq->id }})" type="button"
-                                                                class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:pointer-events-none">
-                                                                Delete
-                                                            </button>
-                                                        </div>
-                                                        <x-action-item
-                                                            url="{{ route('dashboard.faqs.show', $faq->id) }}">View</x-action-item>
-                                                        <x-action-item
-                                                            url="{{ route('dashboard.faqs.edit', $faq->id) }}">Edit</x-action-item>
-                                                    </div>
-                                                </td>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                                    Id
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                                    Question
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                                    Category
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                                    Action
+                                                </th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                            @foreach ($faqs as $faq)
+                                                <tr>
+                                                    <td
+                                                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                                                        {{ $faq->id }}</td>
+                                                    <td
+                                                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                                                        {{ $faq->question }}</td>
+                                                    <td
+                                                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                                                        {{ $faq->faqCategory->name }}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-start text-sm font-medium">
+                                                        <div class="flex items-center gap-x-[20px]">
+                                                            <div>
+                                                                <form id="delete-form"
+                                                                    action="{{ route('dashboard.faqs.destroy', '__id__') }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+
+                                                                <button onclick="deletePost({{ $faq->id }})"
+                                                                    type="button"
+                                                                    class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:pointer-events-none">
+                                                                    Delete
+                                                                </button>
+                                                            </div>
+                                                            <x-action-item
+                                                                url="{{ route('dashboard.faqs.show', $faq->id) }}">View</x-action-item>
+                                                            <x-action-item
+                                                                url="{{ route('dashboard.faqs.edit', $faq->id) }}">Edit</x-action-item>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex justify-start pt-[20px]">
-                    {{ $faqs->links() }}
-                </div>
+                    <div class="flex justify-start pt-[20px]">
+                        {{ $faqs->links() }}
+                    </div>
+                @endif
             </div>
         </section>
     </div>
