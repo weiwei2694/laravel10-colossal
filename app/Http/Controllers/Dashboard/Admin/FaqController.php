@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use App\Models\FaqCategory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 
@@ -17,6 +18,13 @@ class FaqController extends Controller
 
         if (request('category') !== "all") {
             $faqs->where('faq_category_id', request('category'));
+        }
+
+        if (request('search')) {
+            $searchTerm = '%' . request('search') . '%';
+            $faqs->where(function (Builder $query) use ($searchTerm) {
+                $query->where('question', 'like', $searchTerm);
+            });
         }
 
         $faqs = $faqs->with('faqCategory')
