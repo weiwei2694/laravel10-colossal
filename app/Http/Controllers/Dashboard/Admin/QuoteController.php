@@ -17,6 +17,16 @@ class QuoteController extends Controller
             ->view('dashboard.admin.quotes.index', compact('quotes'));
     }
 
+    public function update(Quote $quote): RedirectResponse
+    {
+        $quote->is_read = 1;
+        $quote->save();
+
+        return redirect()
+            ->route('dashboard.quotes.index')
+            ->with('success', 'Quote updated successfully.');
+    }
+
     public function destroy(Quote $quote): RedirectResponse
     {
         $quote->delete();
