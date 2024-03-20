@@ -104,6 +104,15 @@
 @endsection
 
 @section('scripts')
+    @if (session('success'))
+        <script>
+            const successMessage = {!! json_encode(session('success')) !!};
+            Swal.fire({
+                title: successMessage,
+                icon: "success"
+            });
+        </script>
+    @endif
     <script>
         function deletePost(id) {
             Swal.fire({
