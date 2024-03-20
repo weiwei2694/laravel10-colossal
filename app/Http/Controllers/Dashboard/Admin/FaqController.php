@@ -16,7 +16,7 @@ class FaqController extends Controller
         $categories = FaqCategory::all();
         $faqs = Faq::query();
 
-        if (request('category') !== "all") {
+        if (request('category') && request('category') !== "all") {
             $faqs->where('faq_category_id', request('category'));
         }
 
