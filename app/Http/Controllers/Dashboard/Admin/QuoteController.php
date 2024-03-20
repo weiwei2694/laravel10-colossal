@@ -17,6 +17,12 @@ class QuoteController extends Controller
             ->view('dashboard.admin.quotes.index', compact('quotes'));
     }
 
+    public function show(Quote $quote): Response
+    {
+        return response()
+            ->view('dashboard.admin.quotes.show', compact('quote'));
+    }
+
     public function update(Quote $quote): RedirectResponse
     {
         $quote->is_read = 1;
