@@ -12,11 +12,18 @@ class FaqController extends Controller
 {
     public function index(): Response
     {
-        $faqs = Faq::with('faqCategory')
+        $categories = FaqCategory::all();
+        $faqs = Faq::query();
+
+        if (request('category') !== "all") {
+            $faqs->where('faq_category_id', request('category'));
+        }
+
+        $faqs = $faqs->with('faqCategory')
             ->paginate(10);
 
         return response()
-            ->view('dashboard.admin.faqs.index', compact('faqs'));
+            ->view('dashboard.admin.faqs.index', compact('faqs', 'categories'));
     }
 
     public function create(): Response
