@@ -10,8 +10,14 @@
                 {{-- desktop --}}
                 <form id="filterForm" action="{{ route('dashboard.quotes.index') }}" method="GET"
                     class="max-xl:hidden xl:flex flex-row justify-between gap-x-20">
-                    <div>
-                        {{-- TODO: search filter --}}
+                    <div class="flex flex-col gap-y-2">
+                        <label for="search" class="font-medium text-card-dark/60">Search</label>
+                        <div class="flex flex-row gap-x-2">
+                            <input type="text" class="outline-none p-2 border-2 rounded-lg" id="search" name="search"
+                                placeholder="Search by Name or Company" value="{{ request('search') }}">
+                            <button type="submit"
+                                class="h-full px-8 grid place-items-center bg-blue-500 hover:bg-blue-500/90 font-semibold text-white rounded-lg">Search</button>
+                        </div>
                     </div>
                     <div class="flex flex-row gap-x-[20px]">
                         <div class="flex flex-col gap-y-2">
