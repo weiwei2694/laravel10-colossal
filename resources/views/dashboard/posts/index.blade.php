@@ -126,6 +126,9 @@
             </div>
         </section>
     </div>
+
+    {{-- Sidebar Filter Form - (mobile - tablet) --}}
+    @include('dashboard.posts.partials.filter-form-sidebar')
 @endsection
 
 @section('scripts')
@@ -157,5 +160,28 @@
                 }
             });
         }
+
+        // Filter Form - (mobile - tablet)
+        const containerSidebarFilter = document.getElementById('container-sidebar-filter');
+        const sidebarFilter = document.getElementById('sidebar-filter');
+        const openSidebarFilter = document.getElementById('open-sidebar-filter');
+        const closeSidebarFilter = document.getElementById('close-sidebar-filter');
+
+        containerSidebarFilter.addEventListener('click', function(event) {
+            if (!sidebarFilter.contains(event.target)) {
+                containerSidebarFilter.classList.remove('fixed');
+                containerSidebarFilter.classList.add('hidden');
+            }
+        });
+
+        openSidebarFilter.addEventListener('click', function() {
+            containerSidebarFilter.classList.remove('hidden');
+            containerSidebarFilter.classList.add('fixed');
+        });
+
+        closeSidebarFilter.addEventListener('click', function() {
+            containerSidebarFilter.classList.remove('fixed');
+            containerSidebarFilter.classList.add('hidden');
+        })
     </script>
 @endsection
