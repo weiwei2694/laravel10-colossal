@@ -5,6 +5,8 @@
     @include('pricing.partials.pricing')
     {{-- Section - Pricing Content --}}
     @include('pricing.partials.pricing-content')
-    {{-- Section - Faqs --}}
-    @include('services.show.partials.faqs')
+    @if (!$faqs->isEmpty())
+        {{-- Section - Faqs --}}
+        @include('services.show.partials.faqs')
+    @endif
 @endsection
