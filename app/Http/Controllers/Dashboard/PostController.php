@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +26,16 @@ class PostController extends Controller
         } else {
             $posts->where('user_id', auth()->id());
         }
+
+        if (request('search')) {
+            $searchTerm = '%' . request('search') . '%';
+            $posts->where(function (Builder $query) use ($searchTerm) {
+                $query->where('title', 'like', $searchTerm)
+                    ->orWhere('subtitle', 'like', $searchTerm)
+                    ->orWhere('tags', 'like', $searchTerm);
+            });
+        }
+
         $posts = $posts->paginate(10);
 
         return response()
