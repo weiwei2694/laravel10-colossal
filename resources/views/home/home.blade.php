@@ -5,16 +5,22 @@
     @include('home.partials.typography')
     {{-- Section - Features --}}
     @include('home.partials.features')
-    {{-- Section - Sponsors --}}
-    @include('home.partials.sponsors')
+    @if (!$sponsors->isEmpty())
+        {{-- Section - Sponsors --}}
+        @include('home.partials.sponsors')
+    @endif
     {{-- Section - How We Work --}}
     @include('home.partials.how-we-work')
     {{-- Section - Our Team --}}
     @include('home.partials.our-team')
-    {{-- Section - Projects --}}
-    @include('home.partials.projects')
+    @if (!$projects->isEmpty())
+        {{-- Section - Projects --}}
+        @include('home.partials.projects')
+    @endif
     {{-- Section - Get Started --}}
     @include('home.partials.get-started')
     {{-- Section - Testimonials --}}
-    @include('home.partials.testimonials')
+    @if (!$testimonials->isEmpty())
+        @include('home.partials.testimonials')
+    @endif
 @endsection
