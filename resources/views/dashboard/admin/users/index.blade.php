@@ -14,6 +14,9 @@
                                 <thead>
                                     <tr>
                                         <th scope="col"
+                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Id
+                                        </th>
+                                        <th scope="col"
                                             class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Name
                                         </th>
                                         <th scope="col"
@@ -34,6 +37,8 @@
                                 <tbody class="divide-y divide-gray-200">
                                     @foreach ($users as $user)
                                         <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                                                {{ $user->id }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                                 {{ $user->name }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
