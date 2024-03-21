@@ -32,7 +32,22 @@
                                 </option>
                             </select>
                         </div>
-                        {{-- TODO: company size filter --}}
+                        <div class="flex flex-col gap-y-2">
+                            <label for="company_size" class="font-medium text-card-dark/60">Company Size</label>
+                            <select name="company_size" id="company_size" class="outline-none p-2 border-2 rounded-lg"
+                                class="font-semibold">
+                                <option value="all" class="font-medium text-card-dark"
+                                    @if (request('company_size') === 'all') selected @endif>
+                                    All
+                                </option>
+                                @foreach (Quote::COMPANY_SIZE as $size)
+                                    <option value="all" class="font-medium text-card-dark"
+                                        @if (request('company_size') === $size) selected @endif>
+                                        {{ $size }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                 </form>
 
