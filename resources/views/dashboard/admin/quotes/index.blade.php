@@ -47,7 +47,7 @@
                                     All
                                 </option>
                                 @foreach (Quote::COMPANY_SIZE as $size)
-                                    <option value="all" class="font-medium text-card-dark"
+                                    <option value="{{ $size }}" class="font-medium text-card-dark"
                                         @if (request('company_size') === $size) selected @endif>
                                         {{ $size }}
                                     </option>
