@@ -3,8 +3,10 @@
 @section('content')
     {{-- Section - Header --}}
     @include('projects.index.partials.header')
-    {{-- Section - Projects --}}
-    @include('projects.index.partials.projects')
+    @if (!$projects->isEmpty())
+        {{-- Section - Projects --}}
+        @include('projects.index.partials.projects')
+    @endif
 @endsection
 
 @section('scripts')
