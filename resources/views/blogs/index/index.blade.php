@@ -3,8 +3,10 @@
 @section('content')
     {{-- Section - Blog --}}
     @include('blogs.index.partials.blog')
-    {{-- Section - Blog - Content --}}
-    @include('blogs.index.partials.blog-content')
+    @if (!$blogs->isEmpty())
+        {{-- Section - Blog - Content --}}
+        @include('blogs.index.partials.blog-content')
+    @endif
 @endsection
 
 @section('scripts')
