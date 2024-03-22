@@ -11,6 +11,7 @@
             <form action="{{ route('dashboard.settings.update-profile', auth()->id()) }}" method="POST"
                 enctype="multipart/form-data" class="flex flex-col gap-y-10 max-sm:w-full sm:w-[600px]">
                 @csrf
+                @method('PUT')
 
                 <div class="flex flex-row gap-x-6 items-center">
                     <img id="image-profile" src="{{ asset('/storage/' . auth()->user()->image) }}"
@@ -90,6 +91,7 @@
             <form action="{{ route('dashboard.settings.update-password', auth()->id()) }}" method="POST"
                 enctype="multipart/form-data" class="flex flex-col gap-y-10 max-sm:w-full sm:w-[600px]">
                 @csrf
+                @method('PUT')
 
                 <div class="flex flex-col gap-y-5">
                     <h4 class="font-semibold text-black text-lg">Change Password</h4>

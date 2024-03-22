@@ -49,9 +49,9 @@ Route::prefix('dashboard')
 
             Route::get('settings', [SettingController::class, 'index'])
                 ->name('settings.index');
-            Route::post('settings/update-profile/{user}', [SettingController::class, 'updateProfile'])
+            Route::put('settings/update-profile/{user}', [SettingController::class, 'updateProfile'])
                 ->name('settings.update-profile');
-            Route::post('settings/update-password/{user}', [SettingController::class, 'updatePassword'])
+            Route::put('settings/update-password/{user}', [SettingController::class, 'updatePassword'])
                 ->name('settings.update-password');
         });
 
