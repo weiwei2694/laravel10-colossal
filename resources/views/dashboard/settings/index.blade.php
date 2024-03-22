@@ -83,7 +83,7 @@
                         @enderror
                     </div>
                     <button type="submit"
-                        class="mt-2 rounded-full px-6 py-2.5 bg-blue-500 font-medium text-white w-fit">Save</button>
+                        class="mt-2 rounded-full px-6 py-2.5 bg-blue-500 hover:bg-blue-600 hover:ring-4 hover:ring-blue-300 transition font-medium text-white w-fit focus:ring-4 focus:bg-blue-600 focus:ring-blue-300 outline-none">Save</button>
                 </div>
             </form>
 
@@ -112,7 +112,7 @@
                         @enderror
                     </div>
                     <button type="submit"
-                        class="mt-2 rounded-full px-6 py-2.5 bg-blue-500 font-medium text-white w-fit">Save</button>
+                        class="mt-2 rounded-full px-6 py-2.5 bg-blue-500 hover:bg-blue-600 hover:ring-4 hover:ring-blue-300 transition font-medium text-white w-fit focus:ring-4 focus:bg-blue-600 focus:ring-blue-300 outline-none">Save</button>
                 </div>
             </form>
         </div>
