@@ -51,6 +51,8 @@ Route::prefix('dashboard')
                 ->name('settings.index');
             Route::post('settings/update-profile/{user}', [SettingController::class, 'updateProfile'])
                 ->name('settings.update-profile');
+            Route::post('settings/update-password/{user}', [SettingController::class, 'updatePassword'])
+                ->name('settings.update-password');
         });
 
         Route::middleware(['is_admin', 'auth'])->group(function () {

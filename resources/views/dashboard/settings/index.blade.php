@@ -6,7 +6,8 @@
             <h1 class="font-semibold text-black text-xl">Account</h1>
             <p class="font-normal text-card-dark">Manage your profile</p>
         </div>
-        <div class="px-[20px] py-[40px]">
+        <div class="flex flex-col gap-y-[4rem] px-[20px] py-[40px]">
+            {{-- Update Profile --}}
             <form action="{{ route('dashboard.settings.update-profile', auth()->id()) }}" method="POST"
                 enctype="multipart/form-data" class="flex flex-col gap-y-10 max-sm:w-full sm:w-[600px]">
                 @csrf
@@ -77,6 +78,34 @@
                             value="{{ old('linkedin', auth()->user()->linkedin) }}"
                             class="settings__input @error('linkedin') settings__input-error @enderror">
                         @error('linkedin')
+                            <span class="settings__invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <button type="submit"
+                        class="mt-2 rounded-full px-6 py-2.5 bg-blue-500 font-medium text-white w-fit">Save</button>
+                </div>
+            </form>
+
+            {{-- Update Password --}}
+            <form action="{{ route('dashboard.settings.update-password', auth()->id()) }}" method="POST"
+                enctype="multipart/form-data" class="flex flex-col gap-y-10 max-sm:w-full sm:w-[600px]">
+                @csrf
+
+                <div class="flex flex-col gap-y-5">
+                    <h4 class="font-semibold text-black text-lg">Change Password</h4>
+                    <div class="flex flex-col gap-y-1 w-full">
+                        <label for="current_password" class="text-black font-medium">Current Password</label>
+                        <input type="password" name="current_password" id="current_password"
+                            class="settings__input @error('current_password') settings__input-error @enderror">
+                        @error('current_password')
+                            <span class="settings__invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="flex flex-col gap-y-1 w-full">
+                        <label for="new_password" class="text-black font-medium">New Password</label>
+                        <input type="password" name="new_password" id="new_password"
+                            class="settings__input @error('new_password') settings__input-error @enderror">
+                        @error('new_password')
                             <span class="settings__invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>

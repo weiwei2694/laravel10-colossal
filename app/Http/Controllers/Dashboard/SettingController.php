@@ -49,4 +49,27 @@ class SettingController extends Controller
             ->route('dashboard.settings.index')
             ->with('success', 'Profile updated successfully.');
     }
+
+    public function updatePassword(User $user): RedirectResponse
+    {
+        request()->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8'
+        ]);
+
+        if (!password_verify(request('current_password'), $user->password)) {
+            return redirect()
+                ->back()
+                ->withErrors([
+                    'current_password' => 'The password you entered is incorrect.'
+                ]);
+        }
+
+        $user->password = bcrypt(request('new_password'));
+        $user->save();
+
+        return redirect()
+            ->route('dashboard.settings.index')
+            ->with('success', 'Password updated successfully.');
+    }
 }
