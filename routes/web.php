@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Dashboard\Admin\{UserController, SponsorController, ProjectController as DashboardProjectController, TestimonialController, FaqController as DashboardFaqController, FaqCategoryController, ProjectCategoryController, QuoteController as DashboardQuoteController};
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\{AuthController, AboutController, HowWeWorkController, FaqController, PricingController, ProjectController, HomeController, QuoteController, ServiceController, TermOfServiceController, ContactController};
+use App\Http\Controllers\Dashboard\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +46,11 @@ Route::prefix('dashboard')
         Route::middleware(['auth'])->group(function () {
             Route::view('/', 'layouts.dashboard.dashboard')->name('index');
             Route::resource('posts', PostController::class);
+
+            Route::get('settings', [SettingController::class, 'index'])
+                ->name('settings.index');
+            Route::post('settings/update-profile/{user}', [SettingController::class, 'updateProfile'])
+                ->name('settings.update-profile');
         });
 
         Route::middleware(['is_admin', 'auth'])->group(function () {

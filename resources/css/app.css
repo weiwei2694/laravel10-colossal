@@ -49,6 +49,20 @@ body {
     @apply md:w-full md:ml-0;
 }
 
+/* Settings */
+.settings__input {
+    @apply py-3 px-3 rounded-full border-[1.5px] text-black outline-none;
+}
+.settings__input-error {
+    @apply !border-red-500 !border-[1.5px] !ring-4 !ring-red-200;
+}
+.settings__textarea {
+    @apply py-3 px-3 rounded-[16px] border-[1.5px] text-black outline-none resize-none;
+}
+.settings__invalid-feedback {
+    @apply text-red-500 text-xs font-medium ms-3 mt-1;
+}
+
 /* Faq */
 .accordion-header .transform {
     transform: rotate(180deg);
