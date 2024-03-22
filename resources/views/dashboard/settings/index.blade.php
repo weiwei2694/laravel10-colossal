@@ -9,7 +9,7 @@
         <div class="flex flex-col gap-y-[4rem] px-[20px] py-[40px]">
             {{-- Update Profile --}}
             <form action="{{ route('dashboard.settings.update-profile', auth()->id()) }}" method="POST"
-                enctype="multipart/form-data" class="flex flex-col gap-y-10 max-sm:w-full sm:w-[600px]">
+                enctype="multipart/form-data" class="flex flex-col gap-y-10 max-lg:w-full lg:w-[600px]">
                 @csrf
                 @method('PUT')
 
@@ -27,7 +27,7 @@
 
                 <div class="flex flex-col gap-y-5">
                     <h4 class="font-semibold text-black text-lg">Details</h4>
-                    <div class="flex flex-row gap-x-5">
+                    <div class="flex max-lg:flex-col lg:flex-row max-lg:gap-x-0 lg:gap-x-5 max-lg:gap-y-5 lg:gap-y-0">
                         <div class="flex flex-col gap-y-1 w-full">
                             <label for="name" class="text-black font-medium">Name</label>
                             <input type="text" name="name" id="name"
@@ -89,7 +89,7 @@
 
             {{-- Update Password --}}
             <form action="{{ route('dashboard.settings.update-password', auth()->id()) }}" method="POST"
-                enctype="multipart/form-data" class="flex flex-col gap-y-10 max-sm:w-full sm:w-[600px]">
+                enctype="multipart/form-data" class="flex flex-col gap-y-10 max-lg:w-full lg:w-[600px]">
                 @csrf
                 @method('PUT')
 
