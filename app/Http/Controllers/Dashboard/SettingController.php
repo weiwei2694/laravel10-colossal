@@ -19,7 +19,7 @@ class SettingController extends Controller
     {
         $rules = [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => "required|email|unique:users,email,$user->id",
             'bio' => 'nullable|max:225',
             'twitter' => 'nullable|url:http,https',
             'facebook' => 'nullable|url:http,https',
