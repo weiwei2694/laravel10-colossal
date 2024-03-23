@@ -13,34 +13,31 @@
 
                 <!-- Name -->
                 <div class="flex flex-col">
-                    <label for="name" class="font-medium">Name</label>
+                    <label for="name" class="dashboard__label">Name</label>
                     <input type="text" name="name" id="name" autofocus value="{{ old('name', $sponsor->name) }}"
-                        placeholder="name" class="@error('name') dashboard-input__error @else dashboard-input @enderror"
-                        required>
+                        class="dashboard__input @error('name') dashboard__input-error @enderror" required>
                     @error('name')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Image -->
                 <div class="flex flex-col">
-                    <label for="image" class="font-medium">Image</label>
+                    <label for="image" class="dashboard__label">Image</label>
                     <input onchange="loadFile(event)" type="file" name="image" id="image"
-                        value="{{ old('image') }}" placeholder="image"
-                        class="@error('image') dashboard-input__error @else dashboard-input @enderror">
+                        value="{{ old('image') }}" class="placeholder="image"
+                        @error('image') dashboard__input-error @enderror">
                     @error('image')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
 
                     <!-- Image Preview -->
                     <img src="{{ asset('/storage/' . $sponsor->image) }}" alt="image-preview" id="image-preview"
-                        class="w-fit h-fit">
+                        class="dashboard__image-preview">
                 </div>
 
                 <!-- Submit -->
-                <button
-                    class="bg-blue-500 hover:bg-blue-500/90 disabled:bg-blue-500/60 text-white py-2 px-8 w-fit rounded font-medium outline-none">Save
-                    Sponsor</button>
+                <button class="dashboard__primary-btn">Save</button>
                 <!-- End Of Submit -->
             </form>
         </div>
