@@ -20,10 +20,10 @@ class SettingController extends Controller
         $rules = [
             'name' => 'required',
             'email' => 'required|email',
-            'bio' => 'required|max:225',
-            'twitter' => 'url:http,https',
-            'facebook' => 'url:http,https',
-            'linkedin' => 'url:http,https',
+            'bio' => 'nullable|max:225',
+            'twitter' => 'nullable|url:http,https',
+            'facebook' => 'nullable|url:http,https',
+            'linkedin' => 'nullable|url:http,https',
         ];
         if (request()->hasFile('image')) {
             $rules['image'] = 'required|file|max:3072|mimes:png,jpg,jpeg';
