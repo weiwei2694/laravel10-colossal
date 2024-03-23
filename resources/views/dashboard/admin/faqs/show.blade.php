@@ -9,36 +9,36 @@
             <div class="flex flex-col gap-[20px]">
                 <!-- Question -->
                 <div class="flex flex-col">
-                    <label for="question" class="font-medium">Question</label>
-                    <input type="text" name="question" id="question" value="{{ $faq->question }}" class="dashboard-input"
+                    <label for="question" class="dashboard__label">Question</label>
+                    <input type="text" name="question" id="question" value="{{ $faq->question }}" class="dashboard__input"
                         disabled>
                 </div>
 
                 <!-- Answer -->
                 <div class="flex flex-col">
-                    <label for="answer" class="font-medium">Answer</label>
-                    <textarea name="answer" id="answer" class="dashboard-input" rows="8" disabled>{{ $faq->answer }}</textarea>
+                    <label for="answer" class="dashboard__label">Answer</label>
+                    <textarea name="answer" id="answer" class="dashboard__textarea" rows="8" disabled>{{ $faq->answer }}</textarea>
                 </div>
 
                 <!-- Faq Category Id -->
                 <div class="flex flex-col">
-                    <label for="faq_category_id" class="font-medium">Category</label>
+                    <label for="faq_category_id" class="dashboard__label">Category</label>
                     <input type="text" name="faq_category_id" id="faq_category_id" value="{{ $faq->faqCategory->name }}"
-                        class="dashboard-input" disabled>
+                        class="dashboard__input" disabled>
                 </div>
 
                 <!-- Created At -->
                 <div class="flex flex-col">
-                    <label for="created_at" class="font-medium">Created At</label>
+                    <label for="created_at" class="dashboard__label">Created At</label>
                     <input type="text" name="created_at" id="created_at" value="{{ $faq->created_at }}"
-                        class="dashboard-input" disabled>
+                        class="dashboard__input" disabled>
                 </div>
 
                 <!-- Updated At -->
                 <div class="flex flex-col">
-                    <label for="updated_at" class="font-medium">Updated At</label>
+                    <label for="updated_at" class="dashboard__label">Updated At</label>
                     <input type="text" name="updated_at" id="updated_at" value="{{ $faq->updated_at->diffForHumans() }}"
-                        class="dashboard-input" disabled>
+                        class="dashboard__input" disabled>
                 </div>
             </div>
         </div>
