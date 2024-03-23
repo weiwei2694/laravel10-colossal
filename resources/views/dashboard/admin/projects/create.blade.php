@@ -6,100 +6,95 @@
             <h1 class="font-semibold text-black text-lg">New Project</h1>
         </div>
         <div class="p-[20px]">
-            <form action="{{ route('dashboard.projects.store') }}" method="POST" class="flex flex-col gap-[20px]"
-                enctype="multipart/form-data">
+            <form action="{{ route('dashboard.projects.store') }}" method="POST"
+                class="flex flex-col gap-[20px] max-lg:w-full lg:w-[600px]" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Title -->
                 <div class="flex flex-col">
-                    <label for="title" class="font-medium">Title</label>
+                    <label for="title" class="dashboard__label">Title</label>
                     <input type="text" name="title" id="title" autofocus value="{{ old('title') }}"
-                        placeholder="Title" class="@error('title') dashboard-input__error @else dashboard-input @enderror"
-                        required>
+                        class="dashboard__input @error('title') dashboard__input-error @enderror" required>
                     @error('title')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Description -->
                 <div class="flex flex-col">
-                    <label for="description" class="font-medium">Description</label>
-                    <textarea name="description" id="description" placeholder="Description"
-                        class="@error('description') dashboard-input__error @else dashboard-input @enderror" required rows="8">{{ old('description') }}</textarea>
+                    <label for="description" class="dashboard__label">Description</label>
+                    <textarea name="description" id="description"
+                        class="dashboard__textarea @error('description') dashboard__input-error @enderror" required rows="8">{{ old('description') }}</textarea>
                     @error('description')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Client -->
                 <div class="flex flex-col">
-                    <label for="client" class="font-medium">Client</label>
+                    <label for="client" class="dashboard__label">Client</label>
                     <input type="text" name="client" id="client" autofocus value="{{ old('client') }}"
-                        placeholder="Client" class="@error('client') dashboard-input__error @else dashboard-input @enderror"
-                        required>
+                        class="dashboard__input @error('client') dashboard__input-error @enderror" required>
                     @error('client')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Technology -->
                 <div class="flex flex-col">
-                    <label for="technology" class="font-medium">Technology</label>
+                    <label for="technology" class="dashboard__label">Technology</label>
                     <input type="text" name="technology" id="technology" autofocus value="{{ old('technology') }}"
-                        placeholder="Technology"
-                        class="@error('technology') dashboard-input__error @else dashboard-input @enderror" required>
+                        class="dashboard__input @error('technology') dashboard__input-error @enderror" required>
                     @error('technology')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Is Desktop -->
                 <div class="flex flex-col">
-                    <label for="is_desktop" class="font-medium">Is Desktop</label>
+                    <label for="is_desktop" class="dashboard__label">Is Desktop</label>
                     <select name="is_desktop" id="is_desktop"
-                        class="@error('is_desktop') dashboard-input__error @else dashboard-input @enderror" required>
+                        class="dashboard__input @error('is_desktop') dashboard__input-error @enderror" required>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
 
                     @error('is_desktop')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Project Category Id -->
                 <div class="flex flex-col">
-                    <label for="project_category_id" class="font-medium">Choose Category</label>
+                    <label for="project_category_id" class="dashboard__label">Choose Category</label>
                     <select name="project_category_id" id="project_category_id"
-                        class="@error('project_category_id') dashboard-input__error @else dashboard-input @enderror"
-                        required>
+                        class="dashboard__input @error('project_category_id') dashboard__input-error @enderror" required>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
 
                     @error('project_category_id')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Image -->
                 <div class="flex flex-col">
-                    <label for="image" class="font-medium">Image</label>
+                    <label for="image" class="dashboard__label">Image</label>
                     <input onchange="loadFile(event)" type="file" name="image" id="image"
-                        value="{{ old('image') }}" placeholder="image"
-                        class="@error('image') dashboard-input__error @else dashboard-input @enderror" required>
+                        value="{{ old('image') }}"
+                        class="dashboard__input @error('image') dashboard__input-error @enderror" required>
                     @error('image')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__invalid-feedback">{{ $message }}</span>
                     @enderror
 
                     <!-- Image Preview -->
-                    <img id="image-preview" class="w-fit h-fit">
+                    <img id="image-preview" class="dashboard__image-preview">
                 </div>
 
                 <!-- Submit -->
-                <button
-                    class="bg-blue-500 hover:bg-blue-500/90 disabled:bg-blue-500/60 text-white py-2 px-8 w-fit rounded font-medium outline-none">Save</button>
+                <button class="dashboard__primary-btn">Save</button>
                 <!-- End Of Submit -->
             </form>
         </div>

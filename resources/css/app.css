@@ -26,6 +26,9 @@ body {
 .dashboard__input-error {
     @apply !border-red-500 !border-[1.5px] !ring-4 !ring-red-200;
 }
+.dashboard__textarea {
+    @apply py-3 px-3 rounded-[16px] border-[1.5px] text-black outline-none resize-none focus:ring-4 focus:ring-blue-100 focus:border-blue-300;
+}
 .dashboard__image-preview {
     @apply w-fit h-fit mt-6;
 }
