@@ -44,7 +44,7 @@ class UserController extends Controller
             'email' => 'required|max:149|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
             'role' => 'required|max:74',
-            'image' => 'required|file|max:3072|mimes:png,jpg,jpeg,webp',
+            'image' => 'required|file|max:3072|mimes:png,jpg,jpeg',
         ]);
 
         $fileName = time() . request()->file('image')->getClientOriginalName();

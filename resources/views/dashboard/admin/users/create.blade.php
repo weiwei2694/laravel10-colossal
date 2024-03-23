@@ -6,80 +6,76 @@
             <h1 class="font-semibold text-black text-lg">New User</h1>
         </div>
         <div class="p-[20px]">
-            <form action="{{ route('dashboard.users.store') }}" method="POST" class="flex flex-col gap-[20px]"
-                enctype="multipart/form-data">
+            <form action="{{ route('dashboard.users.store') }}" method="POST"
+                class="flex flex-col gap-[20px] max-lg:w-full lg:w-[600px]" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Name -->
                 <div class="flex flex-col">
-                    <label for="name" class="font-medium">Name</label>
+                    <label for="name" class="dashboard__label">Name</label>
                     <input type="text" name="name" id="name" autofocus value="{{ old('name') }}"
-                        placeholder="name" class="@error('name') dashboard-input__error @else dashboard-input @enderror"
-                        required>
+                        class="dashboard__input @error('name') dashboard__input-error @enderror" required>
                     @error('name')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__input-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Email -->
                 <div class="flex flex-col">
-                    <label for="email" class="font-medium">Email</label>
-                    <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="email"
-                        class="@error('email') dashboard-input__error @else dashboard-input @enderror" required>
+                    <label for="email" class="dashboard__label">Email</label>
+                    <input type="email" name="email" id="email" value="{{ old('email') }}"
+                        class="dashboard__input @error('email') dashboard__input-error @enderror" required>
                     @error('email')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__input-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Password -->
                 <div class="flex flex-col">
-                    <label for="password" class="font-medium">Password</label>
-                    <input type="password" name="password" id="password" value="{{ old('password') }}"
-                        placeholder="password"
-                        class="@error('password') dashboard-input__error @else dashboard-input @enderror" required>
+                    <label for="password" class="dashboard__label">Password</label>
+                    <input type="password" name="password" id="password"
+                        class="dashboard__input @error('password') dashboard__input-error @enderror" required>
                     @error('password')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__input-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Password Confirmation -->
                 <div class="flex flex-col">
-                    <label for="password_confirmation" class="font-medium">Password Confirmation</label>
+                    <label for="password_confirmation" class="dashboard__label">Password Confirmation</label>
                     <input type="password" name="password_confirmation" id="password_confirmation"
-                        value="{{ old('password_confirmation') }}" placeholder="password confirmation"
-                        class="@error('password') dashboard-input__error @else dashboard-input @enderror" required>
+                        class="dashboard__input @error('password') dashboard__input-error @enderror" required>
                     @error('password')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__input-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Role -->
                 <div class="flex flex-col">
-                    <label for="role" class="font-medium">Role</label>
-                    <input type="text" name="role" id="role" value="{{ old('role') }}" placeholder="role"
-                        class="@error('role') dashboard-input__error @else dashboard-input @enderror" required>
+                    <label for="role" class="dashboard__label">Role</label>
+                    <input type="text" name="role" id="role" value="{{ old('role') }}"
+                        class="dashboard__input @error('role') dashboard__input-error @enderror" required>
                     @error('role')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__input-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <!-- Image -->
                 <div class="flex flex-col">
-                    <label for="image" class="font-medium">Image</label>
+                    <label for="image" class="dashboard__label">Image</label>
                     <input onchange="loadFile(event)" type="file" name="image" id="image"
-                        value="{{ old('image') }}" placeholder="image"
-                        class="@error('image') dashboard-input__error @else dashboard-input @enderror" required>
+                        class="dashboard__input @error('image') dashboard__input-error @enderror" required
+                        accept="image/png, image/jpeg">
                     @error('image')
-                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                        <span class="dashboard__input-feedback">{{ $message }}</span>
                     @enderror
 
                     <!-- Image Preview -->
-                    <img id="image-preview" class="w-fit h-fit">
+                    <img id="image-preview" class="dashboard__image-preview">
                 </div>
 
                 <!-- Submit -->
-                <button
-                    class="bg-blue-500 hover:bg-blue-500/90 disabled:bg-blue-500/60 text-white py-2 px-8 w-fit rounded font-medium outline-none">Save</button>
+                <button class="dashboard__primary-btn">Save</button>
                 <!-- End Of Submit -->
             </form>
         </div>
