@@ -6,6 +6,7 @@
         {{-- js/dashboad.js@Path --}}
     </ul>
     <div class="ml-auto">
-        <img src="https://placehold.co/32x32" alt="Profile" class="w-8 h-8 rounded block object-cover align-middle">
+        <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="{{ auth()->user()->name }}"
+            class="w-8 h-8 rounded block object-cover align-middle">
     </div>
 </div>
