@@ -84,6 +84,23 @@ body {
     @apply text-red-500 text-xs font-medium ms-3 mt-1;
 }
 
+/* Login */
+.login__input {
+    @apply outline-none w-full text-white text-[15px] py-[8px] px-[12px] pt-[10px] ps-[18px] block rounded-[6px] bg-white/[.03] border border-white/[.03] hover:border-[#0a0a0a] focus:border-blue-500 h-[48px];
+}
+.login__input-error {
+    @apply !border-red-500/80;
+}
+.login__label {
+    @apply text-white/70 rounded-[3px] ps-[6px] pr-[7px] text-[13.5px] font-medium leading-[15px] inline-block relative;
+}
+.login__button {
+    @apply text-[#1b1b1b] bg-white px-[26px] text-[14px] font-medium rounded-[8px] h-[50px] flex items-center justify-center mt-6 hover:bg-white/90 focus:bg-white/90 outline-none border border-white hover:border-[#0a0a0a] focus:border-[#0a0a0a];
+}
+.login__invalid-feedback {
+    @apply text-xs text-red-500/80 ps-[6px] pe-[7px] leading-[15p] inline-block relative;
+}
+
 /* Faq */
 .accordion-header .transform {
     transform: rotate(180deg);
