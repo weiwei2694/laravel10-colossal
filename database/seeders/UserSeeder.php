@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
         $devonLaneImage = Storage::putFile('images/users', new File(public_path('/assets/users/devon-lane.png')), 'public');
         $floydMiles = Storage::putFile('images/users', new File(public_path('/assets/users/floyd-miles.png')), 'public');
         $marvinMckinney = Storage::putFile('images/users', new File(public_path('/assets/users/marvin-mckinney.png')), 'public');
+        $admin = Storage::putFile('images/users', new File(public_path('/assets/users/admin.jpg')), 'public');
 
         User::create([
             'name' => 'Albert Flores',
@@ -86,6 +87,17 @@ class UserSeeder extends Seeder
             'twitter' => 'https://twitter.com/home',
             'facebook' => 'https://www.facebook.com/',
             'linkedin' => 'https://www.linkedin.com/'
+        ]);
+
+        # Admin
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'admin',
+            'is_admin' => 1,
+            'role' => 'Admin',
+            'image' => $admin,
+            'bio' => 'Admin',
         ]);
     }
 }
