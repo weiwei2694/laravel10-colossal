@@ -1,66 +1,166 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Fullstack Colossal: Laravel 10, Eloquent, MySQL, Tailwind CSS, jQuery
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Collosal is a visually stunning landing page designed for a software house company. With several pages including a home page, services page, about page, and even a blog page, this design is perfect for showcasing the capabilities of the company. The theme is dark with a blurry background and gradient, giving it a glassmorphism effect that is sure to impress. The various pages allow you to highlight the company's services, team, and culture, making it easy for potential clients to get a feel for what you have to offer. With a responsive design that adapts to different screen sizes and devices, Collosal ensures an optimal user experience for all visitors.
 
-## About Laravel
+## Key Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Roles System
+- Crud
+- MySQL
+- Authentication
+- Authorization
+- Route Management
+- Pagination
+- File System
+- Eloquent ORM
+- Tailwind CSS
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Routes
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**PUBLIC**
+- /home - **GET**
+- /projects - **GET**
+- /projects/{project} - **GET**
+- /quote - **GET**
+- /quote - **POST**
+- /services - **GET**
+- /services/service-detail - **GET**
+- /how-we-work - **GET**
+- /about - **GET**
+- /pricing - **GET**
+- /term-of-service - **GET**
+- /faq - **GET**
+- /contact - **GET**
+- /contact - **POST**
+- /blogs - **GET**
+- /blogs{post} - **GET**
+- /blogs/{post}/create-comment - **POST**
+- /auth/login - **GET**
+- /auth/login - **POST**
+- /auth/logout - **POST**
 
-## Learning Laravel
+**DASHBOARD**
+- /dashboard - **GET**
+- /dashboard/posts - **GET**
+- /dashboard/posts - **POST**
+- /dashboard/posts/create - **GET**
+- /dashboard/posts/{post} - **GET**
+- /dashboard/posts/{post} - **PUT**
+- /dashboard/posts/{post} - **DELETE**
+- /dashboard/posts/{post}/edit - **GET**
+- /dashboard/settings - **GET**
+- /dashboard/settings/update-password/{user} - **PUT**
+- /dashboard/settings/update-profile/{user} - **PUT**
+- /dashboard/users - **GET**
+- /dashboard/users - **POST**
+- /dashboard/users/create - **GET**
+- /dashboard/users/{user} - **GET**
+- /dashboard/users/{user} - **PUT**
+- /dashboard/users/{user} - **DELETE**
+- /dashboard/users/{user}/edit - **GET**
+- /dashboard/sponsors - **GET**
+- /dashboard/sponsors - **POST**
+- /dashboard/sponsors/create - **GET**
+- /dashboard/sponsors/{sponsor} - **GET**
+- /dashboard/sponsors/{sponsor} - **PUT**
+- /dashboard/sponsors/{sponsor} - **DELETE**
+- /dashboard/sponsors/{sponsor}/edit - **GET**
+- /dashboard/projects - **GET**
+- /dashboard/projects - **POST**
+- /dashboard/projects/create - **GET**
+- /dashboard/projects/{project} - **GET**
+- /dashboard/projects/{project} - **PUT**
+- /dashboard/projects/{project} - **DELETE**
+- /dashboard/projects/{project}/edit - **GET**
+- /dashboard/project-categories - **GET**
+- /dashboard/project-categories - **POST**
+- /dashboard/project-categories/create - **GET**
+- /dashboard/project-categories/{project_category} - **GET**
+- /dashboard/project-categories/{project_category} - **PUT**
+- /dashboard/project-categories/{project_category} - **DELETE**
+- /dashboard/project-categories/{project_category}/edit - **GET**
+- /dashboard/testimonials - **GET**
+- /dashboard/testimonials - **POST**
+- /dashboard/testimonials/create - **GET**
+- /dashboard/testimonials/{testimonial} - **GET**
+- /dashboard/testimonials/{testimonial} - **PUT**
+- /dashboard/testimonials/{testimonial} - **DELETE**
+- /dashboard/testimonials/{testimonial}/edit - **GET**
+- /dashboard/faqs - **GET**
+- /dashboard/faqs - **POST**
+- /dashboard/faqs/create - **GET**
+- /dashboard/faqs/{faq} - **GET**
+- /dashboard/faqs/{faq} - **PUT**
+- /dashboard/faqs/{faq} - **DELETE**
+- /dashboard/faqs/{faq}/edit - **GET**
+- /dashboard/faq-categories - **GET**
+- /dashboard/faq-categories - **POST**
+- /dashboard/faq-categories/create - **GET**
+- /dashboard/faq-categories/{faq_category} - **GET**
+- /dashboard/faq-categories/{faq_category} - **PUT**
+- /dashboard/faq-categories/{faq_category} - **DELETE**
+- /dashboard/faq-categories/{faq_category}/edit - **GET**
+- /dashboard/quotes - **GET**
+- /dashboard/quotes/{quote} - **GET**
+- /dashboard/quotes/{quote} - **PUT**
+- /dashboard/quotes/{quote} - **DELETE**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Cloning the repository
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone https://github.com/weiwei2694/laravel10-colossal.git
+cd laravel10-colossal
+```
 
-## Laravel Sponsors
+## Install packages
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+*package*
+```bash
+npm install
+yarn install
+pnpm install
+bun install
+```
 
-### Premium Partners
+*composer*
+```bash
+composer install
+composer update
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Setup .env file
+For setting up your environment variables, you can start by copying the `.env.example` file to create your `.env` file. The `.env.example` file typically contains examples or placeholders for the environment variables your application needs. To simplify this process, you can use the following command:
+```bash
+cp .env.example .env
+```
+This command will duplicate the `.env.example` file and create a new file named `.env`, allowing you to fill in the actual values for your environment variables.
 
-## Contributing
+After creating your `.env` file, ensure that your Laravel application is ready to run smoothly by executing the following command to generate an application key:
+```bash
+php artisan key:generate
+```
+This command will generate a unique key for your application, which is essential for security and encryption purposes.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Next, make sure that the database configuration in your .env file points to your MySQL database. Update the `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` variables with the appropriate values for your MySQL database setup.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+To configure email-related features in your Laravel application, you need to ensure that the `MAIL_MAILER` variable in your `.env` file is appropriately set. Begin by accessing your `.env` file and locating the `MAIL_MAILER` variable. If it's not present, add it to the file. Set the value of `MAIL_MAILER` according to your email service provider's specifications. Common values include `smtp`, `sendmail`, `mailgun`, or `ses`. Ensure that other email-related variables such as `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ENCRYPTION`, `MAIL_FROM_ADDRESS`, and `MAIL_FROM_NAME` are also properly configured based on your email service provider's settings. Once you've configured these variables, your Laravel application will be ready to send emails using the specified email service.
 
-## Security Vulnerabilities
+## Running Applications
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+To start your application, make sure to follow the steps below:
 
-## License
+1. **Styling with Tailwind CSS**: Before running the application, ensure you have prepared the styling using Tailwind CSS. Run the following command to compile your assets:
+   ```bash
+   npm run dev
+   ```
+   This will ensure that the user interface of your application is styled properly using Bootstrap.
+   
+2. **Starting the Server**: After ensuring the styling has been applied, you can start the Laravel PHP server by running the command:
+   ```bash
+   php artisan serve
+   ```
+   Make sure to run the command in a separate terminal. This will start your local development server and make your application accessible through your web browser.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+By following these steps, you can start running your application and access it through your web browser for further development. Happy exploring and developing your application!.
