@@ -12,8 +12,9 @@ class AboutController extends Controller
     {
         $sponsors = Sponsor::all();
         $ourTeams = User::where('email', '!=', 'admin@gmail.com')->get();
+        $headTitle = 'About';
 
         return response()
-            ->view('about.index', compact('sponsors', 'ourTeams'));
+            ->view('about.index', compact('sponsors', 'ourTeams', 'headTitle'));
     }
 }

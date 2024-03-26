@@ -13,6 +13,7 @@ class FaqController extends Controller
     {
         $categories = FaqCategory::has('faqs')->get();
         $faqs = Faq::where('faq_category_id', request()->input('category'))->get();
+        $headTitle = 'Faq';
 
         if (!request()->has('category')) {
             $validCategoryId = $categories[0]->id;
@@ -20,6 +21,6 @@ class FaqController extends Controller
         }
 
         return response()
-            ->view('faq.index', compact('categories', 'faqs'));
+            ->view('faq.index', compact('categories', 'faqs', 'headTitle'));
     }
 }

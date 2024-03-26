@@ -49,8 +49,9 @@ class HomeController extends Controller
             ]
         ];
         $testimonials = Testimonial::all();
+        $headTitle = 'Home';
 
         return response()
-            ->view('home.home', compact("features", "sponsors", "projects", "pricing", "testimonials"));
+            ->view('home.home', compact("features", "sponsors", "projects", "pricing", "testimonials", "headTitle"));
     }
 }

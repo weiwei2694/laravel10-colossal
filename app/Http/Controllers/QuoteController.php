@@ -12,9 +12,10 @@ class QuoteController extends Controller
     public function index(): Response
     {
         $company_sizes = Quote::COMPANY_SIZE;
+        $headTitle = 'Quote';
 
         return response()
-            ->view('quote.index', compact('company_sizes'));
+            ->view('quote.index', compact('company_sizes', 'headTitle'));
     }
 
     public function store(): RedirectResponse

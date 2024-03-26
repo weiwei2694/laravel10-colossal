@@ -12,6 +12,7 @@ class BlogController extends Controller
     {
         $blogs = Post::with('user')
             ->paginate(6);
+        $headTitle = 'Blogs';
 
         if (request()->ajax()) {
             $view = view('components.cards-blog', compact('blogs'))->render();
@@ -19,7 +20,7 @@ class BlogController extends Controller
         }
 
         return response()
-            ->view('blogs.index.index', compact('blogs'));
+            ->view('blogs.index.index', compact('blogs', 'headTitle'));
     }
 
     public function createComment(Post $post): RedirectResponse
@@ -46,6 +47,7 @@ class BlogController extends Controller
     {
         $blogs = Post::latest()->take(3)->where('id', '!=', $post->id)->get();
         $comments = Comment::where('post_id', $post->id)->paginate(3);
+        $headTitle = "Blog | $post->title";
 
         if (request()->ajax()) {
             $view = view('components.cards-comment', compact('comments'))->render();

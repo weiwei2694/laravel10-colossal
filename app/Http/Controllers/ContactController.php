@@ -11,8 +11,10 @@ class ContactController extends Controller
 {
     public function index(): Response
     {
+        $headTitle = 'Contact';
+
         return response()
-            ->view('contact.index');
+            ->view('contact.index', compact('headTitle'));
     }
 
     public function store(): RedirectResponse

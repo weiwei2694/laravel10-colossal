@@ -27,8 +27,9 @@ class PricingController extends Controller
                 "lists" => ["Daily backup", "3 hourse of maintenance", "Including fixing", "$50/additional hour"]
             ]
         ];
+        $headTitle = 'Pricing';
 
         return response()
-            ->view('pricing.index', compact('faqs', 'pricing'));
+            ->view('pricing.index', compact('faqs', 'pricing', 'headTitle'));
     }
 }
