@@ -16,7 +16,11 @@
                 you to tell the problem</h1>
             <div class="flex items-center flex-col sm:flex-row gap-[10px]">
                 <x-button-send-quote />
-                <x-button-ask-us />
+                <a
+                    href="/"
+                    class="w-[162px] h-[52px] grid place-items-center bg-white/10 text-white rounded-3"
+                >Ask
+                    Us</a>
             </div>
         </div>
     </div>
