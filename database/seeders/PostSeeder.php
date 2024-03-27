@@ -27,7 +27,7 @@ class PostSeeder extends Seeder
             'title' => 'SEO tricks that can increase the traffic of your website',
             'subtitle' => 'People have been using wrong SEO techniques on their websites.',
             'reading_time' => 5,
-            'tags' => json_encode(['SEO, Web Development']),
+            'tags' => json_encode(['SEO', 'Web Development']),
             'image' => $seoTrickts,
             'body' => <<<'EOT'
             <ol><li><strong>Seo Trickts</strong></li></ol><p>&nbsp;</p><p>People have been using wrong SEO techniques on their websites.</p><p>&nbsp;</p><h3><strong>Hello World</strong></h3><ol><li>1</li><li>2</li><li>3</li></ol><p>&nbsp;</p><p>Hello World</p>
@@ -37,7 +37,7 @@ class PostSeeder extends Seeder
             'title' => '10 Figma Plugins that will increase your productivity',
             'subtitle' => 'All these plugins are free and you can use them forever',
             'reading_time' => 3,
-            'tags' => json_encode(['Figma, UI Design, Curated List']),
+            'tags' => json_encode(['Figma', 'UI Design', 'Curated List']),
             'image' => $figma,
             'body' => <<<'EOT'
             <p>&nbsp;</p>
@@ -71,7 +71,7 @@ class PostSeeder extends Seeder
             'title' => 'How to deploy a Node JS application to a VPS',
             'subtitle' => 'Step by step setting up the server and deploying the application',
             'reading_time' => 20,
-            'tags' => json_encode(['Deployment, Web Development']),
+            'tags' => json_encode(['Deployment', 'Web Development']),
             'image' => $deploy,
             'body' => <<<'EOT'
             <p>Deployment</p>
@@ -81,7 +81,7 @@ class PostSeeder extends Seeder
             'title' => 'How to compress image size without losing quality',
             'subtitle' => 'Small images can speed up website load times',
             'reading_time' => 8,
-            'tags' => json_encode(['Small Images, Compress']),
+            'tags' => json_encode(['Small Images', 'Compress']),
             'image' => $howTo,
             'body' => <<<'EOT'
             <p>Compress</p>
@@ -101,7 +101,7 @@ class PostSeeder extends Seeder
             'title' => 'Monitor your application when errors occur in production',
             'subtitle' => 'Get accurate error messages when the application crashes',
             'reading_time' => 9,
-            'tags' => json_encode(['Production, Monitor, Development']),
+            'tags' => json_encode(['Production', 'Monitor', 'Development']),
             'image' => $monitor,
             'body' => <<<'EOT'
             <p>Body</p>
