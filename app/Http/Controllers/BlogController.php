@@ -55,6 +55,6 @@ class BlogController extends Controller
         }
 
         return response()
-            ->view('blogs.show.show', compact('post', 'blogs', 'comments'));
+            ->view('blogs.show.show', compact('post', 'blogs', 'comments', 'headTitle'));
     }
 }
