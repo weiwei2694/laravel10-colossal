@@ -1,4 +1,4 @@
-# Fullstack Colossal: Laravel 10, Eloquent, MySQL, Tailwind CSS, jQuery
+# Fullstack Colossal: Laravel 10, Eloquent, MySQL, Tailwind CSS, jQuery, JavaScript
 
 Collosal is a visually stunning landing page designed for a software house company. With several pages including a home page, services page, about page, and even a blog page, this design is perfect for showcasing the capabilities of the company. The theme is dark with a blurry background and gradient, giving it a glassmorphism effect that is sure to impress. The various pages allow you to highlight the company's services, team, and culture, making it easy for potential clients to get a feel for what you have to offer. With a responsive design that adapts to different screen sizes and devices, Collosal ensures an optimal user experience for all visitors.
 
@@ -106,7 +106,7 @@ Collosal is a visually stunning landing page designed for a software house compa
 - /dashboard/quotes/{quote} - **DELETE**
 
 
-## Cloning the repository
+## Cloning The Repository
 
 ```bash
 git clone https://github.com/weiwei2694/laravel10-colossal.git
@@ -129,7 +129,7 @@ composer install
 composer update
 ```
 
-## Setup .env file
+## Setup .env File
 For setting up your environment variables, you can start by copying the `.env.example` file to create your `.env` file. The `.env.example` file typically contains examples or placeholders for the environment variables your application needs. To simplify this process, you can use the following command:
 ```bash
 cp .env.example .env
@@ -146,6 +146,14 @@ Next, make sure that the database configuration in your .env file points to your
 
 
 To configure email-related features in your Laravel application, you need to ensure that the `MAIL_MAILER` variable in your `.env` file is appropriately set. Begin by accessing your `.env` file and locating the `MAIL_MAILER` variable. If it's not present, add it to the file. Set the value of `MAIL_MAILER` according to your email service provider's specifications. Common values include `smtp`, `sendmail`, `mailgun`, or `ses`. Ensure that other email-related variables such as `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ENCRYPTION`, `MAIL_FROM_ADDRESS`, and `MAIL_FROM_NAME` are also properly configured based on your email service provider's settings. Once you've configured these variables, your Laravel application will be ready to send emails using the specified email service.
+
+## Setting Up Default Data
+
+To set up default data, you can use the following command:
+```bash
+php artisan migrate:fresh --seed
+php artisan storage:link
+```
 
 ## Running Applications
 
