@@ -7,7 +7,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-    <title>{{ $headTitle }}</title>
+    <title>{{ isset($headTitle) ? $headTitle : env('APP_NAME') }}</title>
 
     <!-- Styles -->
     <link
